@@ -1,0 +1,325 @@
+body {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+.logo {
+    /*font-family: sans-serif;*/
+    color: #718096;
+    font-size: 26px;
+    font-weight: 600;
+    /*margin-left: 50px;*/
+}
+
+.logo a {
+    text-decoration: none;
+    color: #718096;
+}
+
+.logo-2s {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    opacity: 0.7;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    /*background-color: antiquewhite;*/
+    margin-bottom: 30px;
+    border-bottom: 1px solid #718096;
+}
+
+/*==============================================================*/
+
+.main-menu {
+    display: flex;
+    list-style: none;
+    /*width: 30%;*/
+    /*width: 30%;*/
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #718096;
+}
+
+.main-menu ul, .main-menu li {
+    list-style-type: none; /*убираем маркеры списка*/
+}
+.main-menu li a {
+    text-decoration: none; /*убираем подчеркивание ссылок*/
+    color: #718096;
+    padding: 5px 30px;
+    /*width: 100px;*/
+    border-radius: 10px;
+}
+
+.main-menu li {
+        position: relative; /*позиционирование*/
+        float: left;
+        white-space: nowrap;
+        padding: 0 10px;
+        font-weight: 600;
+}
+
+.main-menu li a:hover {
+    color: #ffffff;
+    background-color: #718096;
+    padding: 3px 30px;
+}
+
+/*.main-menu a {*/
+/*    text-decoration: none;*/
+/*    color: #718096;*/
+/*}*/
+
+
+
+/*.menu-item {*/
+/*    white-space: nowrap;*/
+/*    padding: 0 50px;*/
+/*    font-weight: 600;*/
+/*}*/
+
+/*li .menu-item a:hover {*/
+/*    color: #bf1111;*/
+/*}*/
+
+
+
+/*.menu-item:hover {*/
+/*    !*color: #2a4877;*!*/
+/*    color: #bf1111;*/
+/*}*/
+
+
+/*.menu-item:hover .w2 {*/
+/*    !*color: #2a4877;*!*/
+/*    !*color: #bf1111;*!*/
+/*    display:inherit;*/
+
+/*}*/
+
+/*.menu-item .w2 .w2i {*/
+/*        min-width:170px;*/
+/*        float:none;*/
+/*        display:list-item;*/
+/*        position: relative;*/
+/*        color: #bf1111;*/
+/*}*/
+
+
+/*.mi {*/
+/*    display: flex;*/
+/*}*/
+/*------------------------------------------------------------------*/
+
+/*.main-menu li {*/
+/*    position: relative; !*позиционирование*!*/
+/*    float: left; !*обтекание слева*!*/
+/*}*/
+
+.main-menu ul {
+    position: absolute; /*позиционирование выпадающих блоков*/
+    display: none; /*скрываем блоки*/
+    min-width: 90px; /*минимальная ширина выпадающих блоков*/
+    /*text-align: left;*/
+}
+
+.main-menu li:hover ul {
+    display: block; /*показываем блоки при наведении курсора на родителя*/
+    /*color: #11bf16!important;*/
+    left: 0;
+    top: 25px;
+    padding-left: -60px;
+    background-color: #ffffff;
+    padding-top: 10px;
+
+
+}
+
+.main-menu li ul {
+    /*padding: 5px 20px;*/
+
+}
+
+.main-menu li ul a:hover {
+    /*color: darkcyan;*/
+    /*padding: 0 20px;*/
+    color: #ffffff;
+    background-color: #718096;
+}
+
+/*Пункт меню 2-го уровня*/
+.main-menu li ul li a {
+    padding: 3px 30px;
+    /*width: 100px;*/
+    color: #718096;
+    border-radius: 10px;
+}
+
+/*положение выпадающих блоков первого уровня*/
+.main-menu ul {
+    margin: 0;
+    padding: 0;
+    /*left: -30px;*/
+    /*top: 100%;*/
+}
+/*положение вложенных выпадающих блоков*/
+main-menu li ul li ul {
+    /*left: 100%;*/
+    /*top: 0%;*/
+}
+/*---------------------------------------------------------------*/
+
+/* скрываем выпадающие списки по умолчанию
+			 * и задаем абсолютное позиционирование */
+/*nav ul ul {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*}*/
+
+/* отображаем выпадающий список при наведении */
+/*nav ul li:hover {*/
+/*    !*color: #2a4877;*!*/
+/*    display:inherit;*/
+/*    !*color: #bf1111;*!*/
+/*}*/
+
+/*nav ul li a:hover  {*/
+/*    display:inherit;*/
+/*    color: #bf1111;*/
+/*}*/
+
+/* первый уровень выпадающего списка */
+/*nav ul ul li {*/
+/*    min-width:170px;*/
+/*    float:none;*/
+/*    display:list-item;*/
+/*    position: relative;*/
+/*    color: #bf1111;*/
+/*}*/
+
+/*===========================================================*/
+
+
+.s-header, .e-header {
+    /*font-family: sans-serif;*/
+    font-size: 20px;
+    /*color: #11bf16;*/
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.s-header {
+    color: #11bf16;
+}
+
+.e-header {
+    color: #bf1111;
+}
+
+.sss {
+
+    font-size: 20px;
+    color: #218323;
+    font-weight: bold;
+    text-align: right;
+    width: 20%;
+}
+
+.contact-info {
+    /*font-family: sans-serif;*/
+    font-size: 20px;
+    color: #116ebf;
+    font-weight: bold;
+}
+
+.contacts a {
+    text-decoration: none;
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.theme-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.theme {
+    /*width: 250px;*/
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: 2px solid #718096;
+    border-radius: 10px;
+    color: #11bf16;
+    margin-right: 10px;
+}
+
+.theme:hover {
+    border: 2px solid #2a4877;
+    color: #218323;
+}
+
+/*=============== ФОРМЫ =================*/
+.alert {
+    color: #bf1111;
+    font-size: 18px;
+    font-weight: 500;
+    height: 52px;
+}
+
+
+.form-dsg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-label, .form-input, .form-submit {
+    width: 400px;
+    font-size: 20px;
+    font-weight: 500;
+    height: 52px;
+    border-radius: 8px;
+    border: none;
+}
+
+.form-label {
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    background-color: #e3eaea;
+    margin-top: -25px;
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.form-submit {
+    background-color: #12ab8c;
+    color: #fff;
+    margin-top: 20px;
+    width: 250px;
+}
+

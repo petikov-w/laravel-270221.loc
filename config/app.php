@@ -180,7 +180,9 @@ return [
         /*
          *  Мои Service Providers для этого роекта
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        App\Providers\PetikovServiceProvider::class
+
 
         //=============================================
 
@@ -235,7 +237,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'PetikovService' => App\Facades\PetikovService::class
     ],
 
 ];
