@@ -280,13 +280,28 @@ main-menu li ul li ul {
 }
 
 /*=============== ФОРМЫ =================*/
+.errors-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 400px;
+}
+
 .alert {
-    color: #bf1111;
+    color: #1165bf;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     height: 52px;
 }
 
+.alert-danger {
+    background-color: #ff7575;
+}
+
+.form-contact {
+    display: block;
+    padding-top: 30px;
+}
 
 .form-dsg {
     display: flex;
