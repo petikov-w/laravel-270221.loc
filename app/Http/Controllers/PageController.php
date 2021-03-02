@@ -55,30 +55,6 @@ class PageController extends Controller
                 'current_theme' => $title_theme,
                 'id_current_theme' => $id]);
     }
-
-    public function submit(Request $req){
-        $validation = $req->validate([
-            'telefon' => 'required',
-            'email' => 'required|email'
-        ]);
-
-//        App\Model\Contact::create($validation);
-
-
-//        $validation = $req->validate([
-//            'telefon' => 'required|match:/[0-9]+/' ,
-//            'email' => 'required|email'
-//        ]);
-//        $f1 = Contact::find(1);
-//        $f1->email = $req->input('email');
-//        $f1->save();
-
-//        return  view('submit', ['message' => 'Это sss страница сайта',
-//            'title' =>  request('email')]);
-
-    }
-
-
 }
 
 
