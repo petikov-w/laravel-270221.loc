@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactInfoUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Contact;
+
 
 class ContactController extends Controller
 {
@@ -33,52 +36,14 @@ class ContactController extends Controller
         return view('change-contacts', $this->array_arg);
     }
 
-    public function store(\Illuminate\Http\Request $req){
-    //        $validation = $req->validate([
-        $req->validate([
-            'telefon' => 'required',
-            'email' => 'required|email'
-        ]);
-//        $this->validate($req,[
-//            'telefon' => 'required',
-//            'email' => 'required|email'
-//        ]);
-//        $f1 =Contact::find(1);
-//        $f1->telefon = $req->input('telefon');
-//        $f1->email = $req->input('email');
-//        $f1->save();
-//              $validation = $req->validate([
-//            'telefon' => 'required|match:/[0-9]+/' ,
-//            'email' => 'required|email'
-//        ]);
-
-
+    public function store(ContactInfoUpdateRequest $req){
+        $f1 = Contact::find(1);
+        $f1 -> telefon = $req->input('telefon');
+        $f1 -> email = $req->input('email');
+        $f1 -> save();
         return redirect()->route('contacts');
-
-     //return view()->make('contact', $this->array_arg);
     }
 
-    //============================================================================================
-
-
-    public function create2() {
-        $this->array_arg = $this->changeArrItem($this->array_arg,'message','Это учебная страница c формой');
-        $this->array_arg = $this->changeArrItem($this->array_arg,'title','Страница c формой');
-        return view('admins', $this->array_arg);
-    }
-
-    public function store2(\Illuminate\Http\Request $req){
-//        dd($req);
-
-        $req->validate([
-            'telefon' => 'required'
-        ]);
-
-        return $req->input();
-
-    }
-
-    //============================================================================================
 
     private function changeArrItem(array $arr, $s1, string $s2) {
         foreach ($arr as $key => $a) {

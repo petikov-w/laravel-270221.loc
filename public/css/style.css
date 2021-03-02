@@ -285,22 +285,30 @@ main-menu li ul li ul {
     flex-direction: column;
     justify-content: flex-start;
     width: 400px;
+
+
+
 }
 
 .alert {
-    color: #1165bf;
+    color: #ffffff;
     font-size: 18px;
     font-weight: 600;
-    height: 52px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.alert li {
+    list-style: none;
 }
 
 .alert-danger {
     background-color: #ff7575;
 }
 
+
 .form-contact {
-    display: block;
-    padding-top: 30px;
+    margin-top: 30px;
 }
 
 .form-dsg {

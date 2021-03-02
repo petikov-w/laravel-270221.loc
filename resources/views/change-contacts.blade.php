@@ -8,9 +8,9 @@
 <div class="errors-box">
     @if ($errors->any())
         <div class="alert alert-danger">
-            <ul class="alert">
+            <ul>
                 @foreach($errors->all() as $error)
-                    <li class="alert">{{$error}}</li>
+                    <li>{{$error}}</li>
                 @endforeach
             </ul>
         </div>
