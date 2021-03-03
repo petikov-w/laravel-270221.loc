@@ -3,6 +3,8 @@
 @section('title-page')@parent {{$title}}@endsection
 
 @section('content')
+    <div class="form-auth">
+
     <div class="s-header">{{$message}}</div>
 
     <div class="errors-box">
@@ -36,6 +38,6 @@
         </form>
     </div>
     <!--=======================================================================================-->
-
+    </div>
 @endsection
 

@@ -1,15 +1,18 @@
 body {
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.hidden {
+    display: none;
 }
 
 
-.logo {
-    /*font-family: sans-serif;*/
-    color: #718096;
+/*========================== Логотип =============================*/
+.st {
     font-size: 26px;
-    font-weight: 600;
-    /*margin-left: 50px;*/
+    color: #718096;
+    /*opacity: 1!important;*/
 }
 
 .logo a {
@@ -17,13 +20,21 @@ body {
     color: #718096;
 }
 
+.logo-1s {
+    color: #94a0c6;
+    font-size: 26px;
+    font-weight: 600;
+}
+
 .logo-2s {
     display: block;
     font-size: 22px;
     font-weight: 600;
-    letter-spacing: 3px;
-    opacity: 0.7;
+    letter-spacing: 4px;
+    /*opacity: 0.4;*/
+    color: #94a0c6;
 }
+/*=================================================================*/
 
 .container {
     width: 1200px;
@@ -35,147 +46,86 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    /*background-color: antiquewhite;*/
     margin-bottom: 30px;
     border-bottom: 1px solid #718096;
 }
 
-/*==============================================================*/
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+}
+
+
+
+/*======================== Меню ======================================*/
 
 .main-menu {
     display: flex;
     list-style: none;
-    /*width: 30%;*/
-    /*width: 30%;*/
     justify-content: space-between;
     align-items: center;
-    font-family: sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #718096;
 }
 
-.main-menu ul, .main-menu li {
-    list-style-type: none; /*убираем маркеры списка*/
-}
 .main-menu li a {
     text-decoration: none; /*убираем подчеркивание ссылок*/
     color: #718096;
-    padding: 5px 30px;
-    /*width: 100px;*/
+    padding: 5px 15px;
     border-radius: 10px;
 }
 
 .main-menu li {
         position: relative; /*позиционирование*/
-        float: left;
+        /*float: left;*/
         white-space: nowrap;
-        padding: 0 10px;
-        font-weight: 600;
+        font-weight: 500;
 }
 
 .main-menu li a:hover {
     color: #ffffff;
     background-color: #718096;
-    padding: 3px 30px;
+
 }
-
-/*.main-menu a {*/
-/*    text-decoration: none;*/
-/*    color: #718096;*/
-/*}*/
-
-
-
-/*.menu-item {*/
-/*    white-space: nowrap;*/
-/*    padding: 0 50px;*/
-/*    font-weight: 600;*/
-/*}*/
-
-/*li .menu-item a:hover {*/
-/*    color: #bf1111;*/
-/*}*/
-
-
-
-/*.menu-item:hover {*/
-/*    !*color: #2a4877;*!*/
-/*    color: #bf1111;*/
-/*}*/
-
-
-/*.menu-item:hover .w2 {*/
-/*    !*color: #2a4877;*!*/
-/*    !*color: #bf1111;*!*/
-/*    display:inherit;*/
-
-/*}*/
-
-/*.menu-item .w2 .w2i {*/
-/*        min-width:170px;*/
-/*        float:none;*/
-/*        display:list-item;*/
-/*        position: relative;*/
-/*        color: #bf1111;*/
-/*}*/
-
-
-/*.mi {*/
-/*    display: flex;*/
-/*}*/
-/*------------------------------------------------------------------*/
-
-/*.main-menu li {*/
-/*    position: relative; !*позиционирование*!*/
-/*    float: left; !*обтекание слева*!*/
-/*}*/
 
 .main-menu ul {
     position: absolute; /*позиционирование выпадающих блоков*/
     display: none; /*скрываем блоки*/
-    min-width: 90px; /*минимальная ширина выпадающих блоков*/
-    /*text-align: left;*/
+    /*min-width: 90px; !*минимальная ширина выпадающих блоков*!*/
+
 }
 
 .main-menu li:hover ul {
     display: block; /*показываем блоки при наведении курсора на родителя*/
-    /*color: #11bf16!important;*/
     left: 0;
     top: 25px;
-    padding-left: -60px;
+    /*padding-left: -60px;*/
     background-color: #ffffff;
     padding-top: 10px;
-
-
 }
 
-.main-menu li ul {
-    /*padding: 5px 20px;*/
-
-}
-
-.main-menu li ul a:hover {
-    /*color: darkcyan;*/
-    /*padding: 0 20px;*/
-    color: #ffffff;
-    background-color: #718096;
-}
+/*.main-menu li ul a:hover {*/
+/*    color: #ffffff;*/
+/*    background-color: #718096;*/
+/*}*/
 
 /*Пункт меню 2-го уровня*/
-.main-menu li ul li a {
-    padding: 3px 30px;
-    /*width: 100px;*/
-    color: #718096;
-    border-radius: 10px;
-}
+/*.main-menu li ul li a {*/
+/*    padding: 3px 30px;*/
+/*    !*width: 100px;*!*/
+/*    color: #718096;*/
+/*    border-radius: 10px;*/
+/*}*/
 
 /*положение выпадающих блоков первого уровня*/
-.main-menu ul {
-    margin: 0;
-    padding: 0;
-    /*left: -30px;*/
-    /*top: 100%;*/
-}
+/*.main-menu ul {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    !*left: -30px;*!*/
+/*    !*top: 100%;*!*/
+/*}*/
 /*положение вложенных выпадающих блоков*/
 main-menu li ul li ul {
     /*left: 100%;*/
@@ -183,40 +133,9 @@ main-menu li ul li ul {
 }
 /*---------------------------------------------------------------*/
 
-/* скрываем выпадающие списки по умолчанию
-			 * и задаем абсолютное позиционирование */
-/*nav ul ul {*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    top: 100%;*/
-/*}*/
-
-/* отображаем выпадающий список при наведении */
-/*nav ul li:hover {*/
-/*    !*color: #2a4877;*!*/
-/*    display:inherit;*/
-/*    !*color: #bf1111;*!*/
-/*}*/
-
-/*nav ul li a:hover  {*/
-/*    display:inherit;*/
-/*    color: #bf1111;*/
-/*}*/
-
-/* первый уровень выпадающего списка */
-/*nav ul ul li {*/
-/*    min-width:170px;*/
-/*    float:none;*/
-/*    display:list-item;*/
-/*    position: relative;*/
-/*    color: #bf1111;*/
-/*}*/
-
-/*===========================================================*/
 
 
 .s-header, .e-header {
-    /*font-family: sans-serif;*/
     font-size: 20px;
     /*color: #11bf16;*/
     font-weight: bold;
@@ -242,7 +161,6 @@ main-menu li ul li ul {
 }
 
 .contact-info {
-    /*font-family: sans-serif;*/
     font-size: 20px;
     color: #116ebf;
     font-weight: bold;
@@ -264,9 +182,8 @@ main-menu li ul li ul {
 }
 
 .theme {
-    /*width: 250px;*/
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 400;
     padding: 15px 30px;
     border: 2px solid #718096;
     border-radius: 10px;
@@ -279,15 +196,13 @@ main-menu li ul li ul {
     color: #218323;
 }
 
-/*=============== ФОРМЫ =================*/
+/*================================ ФОРМЫ ================================*/
+/*----------------- Стили для вывода сообщений об ошибках ---------------*/
 .errors-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 400px;
-
-
-
 }
 
 .alert {
@@ -305,10 +220,25 @@ main-menu li ul li ul {
 .alert-danger {
     background-color: #ff7575;
 }
-
+/*----------------------------------------------------------------------*/
 
 .form-contact {
     margin-top: 30px;
+}
+
+
+
+
+.form-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-auth p {
+    margin-top: 25px;
+    color: #a0b8b8;
+    text-align: center;
 }
 
 .form-dsg {
@@ -319,9 +249,9 @@ main-menu li ul li ul {
 
 .form-label, .form-input, .form-submit {
     width: 400px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    height: 52px;
+    height: 42px;
     border-radius: 8px;
     border: none;
 }
@@ -336,13 +266,29 @@ main-menu li ul li ul {
     background-color: #e3eaea;
     margin-top: -25px;
     margin-bottom: 25px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .form-submit {
-    background-color: #12ab8c;
+    margin: auto;
+    background-color: #57B846;
     color: #fff;
     margin-top: 20px;
-    width: 250px;
+    min-width: auto;
+}
+
+.reg {
+    text-transform: uppercase;
+}
+
+.reg a{
+    text-decoration: none;
+    line-height: 10px;
+    color: #57B846;
+    font-weight: 500;
+}
+
+.reg a:hover {
+    color: #348026;
 }
 
