@@ -23,7 +23,7 @@
                 @csrf
                 <label for="email" class="form-label">Адрес электронной почты</label>
                 <input name="email" id="email" type="text" class="form-input"
-                       value="" placeholder="Введите email">
+                       @error('email') is-invalid  @enderror value="" placeholder="Введите email">
                 <label for="password" class="form-label">Пароль</label>
                 <input name="password" id="password" type="password" class="form-input"
                        value="" placeholder="Введите пароль">

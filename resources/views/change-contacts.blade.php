@@ -24,8 +24,11 @@
         <input name="telefon" id="telefon" type="text" class="form-input"
                value="{{$telefon}}" placeholder="Введите телефон">
         <label for="email" class="form-label">Адрес электронной почты</label>
-        <input name="email" id="email" type="text" class="form-input"
-               value="{{$email}}" placeholder="Введите email">
+        <input name="email" id="email" type="text" class="form-input @error('email') is-invalid @enderror"
+               value="" placeholder="Введите email">
+        @error('email')
+             <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
         <button type="submit" class="form-submit" >Изменить</button>
     </form>
 </div>
