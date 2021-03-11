@@ -247,7 +247,7 @@ main-menu li ul li ul {
     align-items: flex-start;
 }
 
-.form-label, .form-input, .form-submit {
+.form-input, .form-submit {
     width: 400px;
     font-size: 16px;
     font-weight: 500;
@@ -256,16 +256,33 @@ main-menu li ul li ul {
     border: none;
 }
 
+/*================ Подпись для поля =====================*/
 .form-label {
     color: #000;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 10px;
+    margin-top: 20px;
 }
+/*========================================================*/
+/*=============== Сообщения об ошибках ===================*/
+.invalid-feedback {
+    font-size: 14px;
+    color: #f30505;
+    font-weight: 500;
+    border: 2px solid #f30505;
+    border-radius: 4px;
+    padding: 3px 15px;
+    margin-top: 5px;
+}
+/*========================================================*/
+
+
 
 .form-input {
     background-color: #e3eaea;
-    margin-top: -25px;
-    margin-bottom: 25px;
+    /*margin-top: -25px;*/
+    /*margin-bottom: 25px;*/
     padding-left: 10px;
 }
 

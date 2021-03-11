@@ -19,6 +19,9 @@ $menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArr
 </div>
 @show
 
+        @php
+            dump(\Illuminate\Support\Facades\Auth::check());
+        @endphp
 
         <ul class="main-menu">
 
