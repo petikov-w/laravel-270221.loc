@@ -229,7 +229,7 @@ main-menu li ul li ul {
 
 
 
-.form-auth {
+.form-auth, .form-contact {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -276,8 +276,18 @@ main-menu li ul li ul {
     margin-top: 5px;
 }
 /*========================================================*/
+/*=============== Блок авторизации ===================*/
+.auth-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.ssd {
+    color: #11bf16;
+}
 
+/*========================================================*/
 
 .form-input {
     background-color: #e3eaea;
@@ -309,3 +319,7 @@ main-menu li ul li ul {
     color: #348026;
 }
 
+.s-header p {
+    width: 400px;
+    text-align: center;
+}

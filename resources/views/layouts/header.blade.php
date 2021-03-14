@@ -1,6 +1,7 @@
 <?php
 use App\Models\Menu;
 use App\Facades;
+use Illuminate\Support\Facades\Auth;
 $menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArray();
 ?>
 <div class="header">
@@ -19,9 +20,9 @@ $menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArr
 </div>
 @show
 
-        @php
-            dump(\Illuminate\Support\Facades\Auth::check());
-        @endphp
+{{--        @php--}}
+{{--            dump(Auth::check());--}}
+{{--        @endphp--}}
 
         <ul class="main-menu">
 
@@ -58,7 +59,25 @@ $menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArr
 
     <auth>
         <ul class="main-menu">
-            <li class="menu-item"><a href="{{ route('login.create') }}">Войти</a></li>
+{{--                @if (Auth::check())--}}
+{{--                    <div class="auth-box">--}}
+{{--                        <li class="menu-item"><a href="{{ route('login.logout') }}">Выйти</a></li>--}}
+{{--                        <li class="menu-item ssd">{{ auth()->user()->name}}</li>--}}
+{{--                    </div>--}}
+{{--                @else--}}
+{{--                    <li class="menu-item"><a href="{{ route('login.create') }}">Войти</a></li>--}}
+{{--                @endif--}}
+            @auth
+                <div class="auth-box">
+                    <li class="menu-item"><a href="{{ route('login.logout') }}">Выйти</a></li>
+                    <li class="menu-item ssd">{{ auth()->user()->name}}</li>
+                </div>
+            @endauth
+
+            @guest
+                <li class="menu-item"><a href="{{ route('login.create') }}">Войти</a></li>
+            @endguest
+
         </ul>
     </auth>
 </div>
