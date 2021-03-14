@@ -275,6 +275,31 @@ main-menu li ul li ul {
     padding: 3px 15px;
     margin-top: 5px;
 }
+
+.alert-success, .alert-error {
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 7px 20px;
+    margin: 5px 0;
+}
+
+.alert-success {
+    color: #324cf5;
+    background-color: #72f532;
+    border: 2px solid #72f532;
+}
+
+.alert-error {
+    color: #ffffff;
+    background-color: #ff0000;
+    border: 2px solid #ff0000;
+}
+
+
+
+
+
 /*========================================================*/
 /*=============== Блок авторизации ===================*/
 .auth-box {

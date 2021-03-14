@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
             ]);
-            session()->flash('success', 'Регистрация прошла успешно!');
+            $request = session()->flash('success', 'Регистрация прошла успешно!');
             Auth::login($user);
 
         return redirect()->route('home');

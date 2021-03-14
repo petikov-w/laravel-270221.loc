@@ -5,4 +5,5 @@
 
 @section('content')
         <div class="s-header">{{$message}}</div>
+        @include('layouts.alerts')
 @endsection

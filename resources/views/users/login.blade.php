@@ -5,6 +5,7 @@
 @section('content')
     <div class="form-auth">
         <div class="s-header">{{$message}}</div>
+        @include('layouts.alerts')
 
 {{--        <div class="errors-box">--}}
 {{--            @if ($errors->any())--}}

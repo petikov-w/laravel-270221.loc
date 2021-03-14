@@ -24,6 +24,7 @@ class LoginController extends Controller
             }
         else
             {
+                $request = session()->flash('error', 'Неправильно введен логин или пароль!');
                 return redirect()->back();
             }
     }
