@@ -18,7 +18,7 @@ Route::get('users/login', 'App\Http\Controllers\LoginController@create')->name('
 Route::post('users/login', 'App\Http\Controllers\LoginController@store')->name('login.store');
 Route::get('users/logout', 'App\Http\Controllers\LoginController@logout')->name('login.logout');
 // ======================= Администратор =============================================
-Route::get('admin', 'App\Http\Controllers\admin\MainController@index')->name('admin');
+Route::get('admin', 'App\Http\Controllers\admin\MainController@index')->middleware('admin');
 
 
 //========================= Макросы ==============================================================
