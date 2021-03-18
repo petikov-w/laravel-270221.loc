@@ -20,8 +20,7 @@ body {
 }
 
 .st-f {
-    /*font-size: 20px*/
-    font-size: 16px;
+    font-size: 20px;
     color: #718096;
 }
 
@@ -39,23 +38,23 @@ body {
     color: #94a0c6;
 }
 
-.logo-footer-1s {
-    /*font-size: 20px;*/
-    font-size: 16px;
+.logo-footer .logo-footer-1s {
+    font-size: 20px;
     color: #94a0c6;
     font-weight: 600;
 }
 
-.logo-footer-2s {
-    /*font-size: 16px;*/
-    font-size: 12px;
+.logo-footer .logo-footer-2s {
+    font-size: 16px;
     display: block;
     font-weight: 600;
     letter-spacing: 4px;
     color: #94a0c6;
 }
 
-
+.logo-footer a {
+    text-decoration: none;
+}
 /*=================================================================*/
 
 .container {
@@ -71,6 +70,8 @@ body {
     margin-bottom: 30px;
     border-bottom: 1px solid #718096;
 }
+
+
 
 nav {
     display: flex;
@@ -153,6 +154,7 @@ main-menu li ul li ul {
     /*left: 100%;*/
     /*top: 0%;*/
 }
+
 /*---------------------------------------------------------------*/
 
 
@@ -334,9 +336,42 @@ main-menu li ul li ul {
 /*============================================================*/
 
 /*====================== Подвал ==============================*/
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #718096;
+    border-bottom: 1px solid #718096;
+}
 
+.footer-auth-box {
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 50px;
+}
 
+.footer-auth-box a {
+    text-decoration: none;
+}
 
+.i1 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 30px;
+}
+
+.ops {
+    opacity: 0.7;
+}
+
+.i1 a {
+    color: #718096;
+}
 /*===========================================================*/
 
 

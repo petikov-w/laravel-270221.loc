@@ -3,11 +3,10 @@
 @section('title-page')@parent {{$title}}@endsection
 
 @section('content')
-        <div class="s-header">{{$message}}</div>
 
     <!--========================== ФОРМА ИЗМЕНЕНИЯ КОНТАКТНЫХ ДАННЫХ ===========================-->
     <div class="form-contact">
-        <div class="s-header"><p>{{$message}}</p></div>
+        <div class="s-header">{{$message}}</div>
         <form method="post" action="{{ route('admin.store') }}" class="form-dsg">
             @csrf
             <label for="telefon" class="form-label">Телефон</label>

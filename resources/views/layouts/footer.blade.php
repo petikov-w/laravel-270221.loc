@@ -2,12 +2,12 @@
 use App\Models\Menu;
 use App\Facades;
 use Illuminate\Support\Facades\Auth;
-$menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArray();
+//$menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArray();
 ?>
-{{--<div class="header">--}}
+<div class="footer">
 
-@section('logo')
-{{--    <div class="logo">--}}
+@section('logo-footer')
+<div class="logo-footer">
         @if (PetikovService::isHomePage())
 
             <div class="logo-footer-1s"><span class="st-f">P</span>etikov<span class="logo-footer-2s">
@@ -18,25 +18,19 @@ $menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArr
                                 <span class="st-f">S</span>tudio</span></div>
             </a>
         @endif
-{{--</div>--}}
+</div>
 @show
 
 <auth>
-    <ul class="main-menu">
-    @auth
-        <div class="auth-box">
-            <li class="menu-item"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></li>
-            <li class="menu-item"><a href="{{ route('admin.create') }}">Панель администратора</a></li>
-        </div>
-    @endauth
+<div class="footer-auth-box">
 
-    @guest
-            <li class="menu-item"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></li>
-    @endguest
-    </ul>
+    @if (Auth::check() && Auth::user()->is_admin==1)
+        <span class="i1 ops"><a href="{{ route('admin.create') }}">Панель администратора</a></span>
+        <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
+    @else
+        <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
+    @endif
+</div>
 </auth>
 
-
-{{--</div>--}}
-
-
+</div>
