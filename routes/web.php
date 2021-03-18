@@ -8,13 +8,16 @@ use Illuminate\Support\Facades\Route;
 
 
 // ======================= Главное меню =========================================================
-Route::get('/', 'App\Http\Controllers\PageController@showHomePage')->name('home');;
-Route::get('catalog', 'App\Http\Controllers\PageController@showCatalogPage');
-Route::get('about', 'App\Http\Controllers\PageController@showAboutPage');
-Route::get('contact', 'App\Http\Controllers\ContactController@index')->name('contacts');
+Route::group(['namespace'=>'App\Http\Controllers'], function (){
+    Route::get('/', 'PageController@showHomePage')->name('home');;
+    Route::get('catalog', 'PageController@showCatalogPage');
+    Route::get('about', 'PageController@showAboutPage');
+    Route::get('contact', 'ContactController@index')->name('contacts');
+});
+//================================================================================================
 
-Route::get('users/logout', 'App\Http\Controllers\LoginController@logout')->name('login.logout')->middleware('auth');
 
+//======================= Блок регистации и авторизации пользователей ============================
 Route::group(['middleware'=>'guest'], function (){
 // ======================= Регистрация пользователей =============================================
     Route::get('users/signup', 'App\Http\Controllers\RegisterController@create')->name('signup.create');
@@ -24,11 +27,18 @@ Route::group(['middleware'=>'guest'], function (){
     Route::post('users/login', 'App\Http\Controllers\LoginController@store')->name('login.store');
 });
 
+Route::get('users/logout', 'App\Http\Controllers\LoginController@logout')->name('login.logout')->middleware('auth');
+// ===============================================================================================
+
+
+
 
 // ======================= Администратор =============================================
 Route::group(['middleware'=>'admin', 'prefix'=>'admin', 'namespace'=>'App\Http\Controllers\admin'], function (){
 //    Route::get('/', 'App\Http\Controllers\admin\MainController@index')->middleware('admin');
-    Route::get('/', 'MainController@index');
+//    Route::get('/', 'MainController@index');
+    Route::get('admin', 'MainController@create')->name('admin.create');
+    Route::post('admin', 'MainController@store')->name('admin.store');
 });
 
 

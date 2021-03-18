@@ -9,6 +9,7 @@
     <div class="container">
         @include('layouts.header')
         @yield('content')
+        @include('layouts.footer')
     </div>
     @include('layouts.scripts')
 </body>

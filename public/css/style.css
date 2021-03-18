@@ -9,14 +9,19 @@ body {
 
 
 /*========================== Логотип =============================*/
+.logo a {
+    text-decoration: none;
+    color: #718096;
+}
+
 .st {
     font-size: 26px;
     color: #718096;
-    /*opacity: 1!important;*/
 }
 
-.logo a {
-    text-decoration: none;
+.st-f {
+    /*font-size: 20px*/
+    font-size: 16px;
     color: #718096;
 }
 
@@ -31,9 +36,26 @@ body {
     font-size: 22px;
     font-weight: 600;
     letter-spacing: 4px;
-    /*opacity: 0.4;*/
     color: #94a0c6;
 }
+
+.logo-footer-1s {
+    /*font-size: 20px;*/
+    font-size: 16px;
+    color: #94a0c6;
+    font-weight: 600;
+}
+
+.logo-footer-2s {
+    /*font-size: 16px;*/
+    font-size: 12px;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #94a0c6;
+}
+
+
 /*=================================================================*/
 
 .container {
@@ -297,9 +319,6 @@ main-menu li ul li ul {
 }
 
 
-
-
-
 /*========================================================*/
 /*=============== Блок авторизации ===================*/
 .auth-box {
@@ -312,7 +331,16 @@ main-menu li ul li ul {
     color: #11bf16;
 }
 
-/*========================================================*/
+/*============================================================*/
+
+/*====================== Подвал ==============================*/
+
+
+
+/*===========================================================*/
+
+
+
 
 .form-input {
     background-color: #e3eaea;
