@@ -1,7 +1,15 @@
 body {
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
+
+
+body, html {
+    height: 100%;
+}
+
 
 .hidden {
     display: none;
@@ -80,6 +88,9 @@ nav {
     width: 85%;
 }
 
+.content {
+    flex-grow: 1;
+}
 
 
 /*======================== Меню ======================================*/
@@ -402,6 +413,7 @@ main-menu li ul li ul {
 /*====================== Подвал ==============================*/
 .footer {
     display: flex;
+    flex: 0 0 auto;
     align-items: center;
     justify-content: space-between;
     height: 80px;
@@ -410,6 +422,7 @@ main-menu li ul li ul {
     border-top: 1px solid #718096;
     border-bottom: 1px solid #718096;
 }
+
 
 .footer-auth-box {
     display: flex;

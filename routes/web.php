@@ -37,8 +37,8 @@ Route::get('users/logout', 'App\Http\Controllers\LoginController@logout')->name(
 Route::group(['middleware'=>'admin', 'prefix'=>'admin', 'namespace'=>'App\Http\Controllers\admin'], function (){
 //    Route::get('/', 'App\Http\Controllers\admin\MainController@index')->middleware('admin');
 //    Route::get('/', 'MainController@index');
-    Route::get('admin', 'MainController@create')->name('admin.create');
-    Route::post('admin', 'MainController@store')->name('admin.store');
+    Route::get('admin', 'MainController@create')->name('admin.contact-create');
+    Route::post('admin', 'MainController@store')->name('admin.contact-store');
 });
 
 
