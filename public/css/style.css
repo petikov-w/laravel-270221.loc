@@ -67,7 +67,7 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
     border-bottom: 1px solid #718096;
 }
 
@@ -220,8 +220,59 @@ main-menu li ul li ul {
     color: #218323;
 }
 
-/*================================ ФОРМЫ ================================*/
-/*----------------- Стили для вывода сообщений об ошибках ---------------*/
+/*======================== Админ-панель ==========================*/
+.admin-panel {
+    display: flex;
+}
+
+.sidebar-left {
+    /*background-color: #e2e8f0;*/
+    width: 25%;
+    border-right: 1px solid #718096;
+}
+
+.content-area {
+    /*background-color: #fde0e0;*/
+    width: 75%;
+    padding: 25px 60px;
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 25px;
+}
+
+.admin-menu-item    {
+    font-size: 18px;
+    font-weight: 500;
+    color: #94A0C8;
+    margin-bottom: 15px;
+}
+
+.admin-menu-item:first-child{
+    /*margin-top: 15px;*/
+}
+
+
+.admin-menu-item a {
+    text-decoration: none;
+    color: #718096;
+}
+
+.admin-menu-item a:hover {
+    color: #ffffff;
+    background-color: #718096;
+    padding: 5px 25px 5px 5px;
+    border-radius: 8px;
+}
+
+
+/*===============================================================*/
+/*======================= ФОРМЫ =================================*/
+/*--------- Стили для вывода сообщений об ошибках ---------------*/
 .errors-box {
     display: flex;
     flex-direction: column;
@@ -247,17 +298,25 @@ main-menu li ul li ul {
 /*----------------------------------------------------------------------*/
 
 .form-contact {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 
-
-
-.form-auth, .form-contact {
+.form-auth {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+
+
+
 
 .form-auth p {
     margin-top: 25px;
@@ -288,6 +347,11 @@ main-menu li ul li ul {
     margin-bottom: 10px;
     margin-top: 20px;
 }
+
+.mtop0 {
+    margin-top: 0;
+}
+
 /*========================================================*/
 /*=============== Сообщения об ошибках ===================*/
 .invalid-feedback {
@@ -342,7 +406,7 @@ main-menu li ul li ul {
     justify-content: space-between;
     height: 80px;
     margin-bottom: 30px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     border-top: 1px solid #718096;
     border-bottom: 1px solid #718096;
 }
@@ -385,11 +449,14 @@ main-menu li ul li ul {
 }
 
 .form-submit {
-    margin: auto;
+    /*margin: auto;*/
     background-color: #57B846;
     color: #fff;
     margin-top: 20px;
-    min-width: auto;
+    width: auto;
+    padding: 3px 25px;
+    /*min-width: auto;*/
+    /*margin-bottom: 20px;*/
 }
 
 .reg {

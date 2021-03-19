@@ -2,7 +2,7 @@
 use App\Models\Menu;
 use App\Facades;
 use Illuminate\Support\Facades\Auth;
-$menu = Menu:: query()->get(['title', 'url','parent'])->where('parent',0)->toArray();
+$menu = Menu:: query()->get(['title', 'url','parent','menu_type'])->where('menu_type','main')->where('parent',0)->toArray();
 ?>
 <div class="header">
     <nav>
