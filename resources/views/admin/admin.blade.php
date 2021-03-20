@@ -1,6 +1,8 @@
 <?php
 use App\Models\Menu;
-$menu = Menu:: query()->get(['title', 'url','parent','menu_type'])->where('menu_type','admin')->where('parent',0)->toArray();
+$menu = Menu:: query()->get(['title', 'url','parent','menu_type'])
+                      ->where('menu_type','admin')
+                      ->where('parent',0)->toArray();
 ?>
 
 @extends('layouts.basis')
@@ -8,6 +10,7 @@ $menu = Menu:: query()->get(['title', 'url','parent','menu_type'])->where('menu_
 @section('title-page')@parent {{$title}}@endsection
 
 @section('content')
+<!--    --><?php //dd(Route::currentRouteName()) ?>
     <div class="admin-panel">
         <div class="sidebar-left">
             <ul class="admin-menu">
@@ -17,28 +20,11 @@ $menu = Menu:: query()->get(['title', 'url','parent','menu_type'])->where('menu_
             </ul>
         </div>
         <div class="content-area">
-        @include('layouts.form_contact')
-{{--        --}}
-{{--            <!--========================== ФОРМА ИЗМЕНЕНИЯ КОНТАКТНЫХ ДАННЫХ ===========================-->--}}
-{{--            <div class="form-contact">--}}
-{{--                <form method="post" action="{{ route('admin.contact-store') }}" class="form-dsg">--}}
-{{--                    @csrf--}}
-{{--                    <label for="telefon" class="form-label mtop0">Телефон</label>--}}
-{{--                    <input name="telefon" id="telefon" type="text" class="form-input @error('telefon') @enderror"--}}
-{{--                           value="{{ old('telefon') }}" placeholder="Введите телефон">--}}
-{{--                    @error('telefon')--}}
-{{--                    <div class="invalid-feedback">{{ $message }}</div>--}}
-{{--                    @enderror--}}
-{{--                    <label for="email" class="form-label">Адрес электронной почты</label>--}}
-{{--                    <input name="email" id="email" type="text" class="form-input @error('email') is-invalid @enderror"--}}
-{{--                           value="{{ old('email') }}" placeholder="Введите email">--}}
-{{--                    @error('email')--}}
-{{--                    <div class="invalid-feedback">{{ $message }}</div>--}}
-{{--                    @enderror--}}
-{{--                    <button type="submit" class="form-submit" >Сохранить</button>--}}
-{{--                </form>--}}
-{{--            </div>--}}
-{{--            <!--=======================================================================================-->--}}
+            @if (Route::currentRouteName()=='admin.contact-create')
+                @include('layouts.form_contact')
+            @elseif(Route::currentRouteName()=='admin.theme-create')
+                @include('layouts.form_theme')
+            @endif
         </div>
     </div>
 @endsection
