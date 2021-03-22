@@ -24,6 +24,8 @@ $menu = Menu:: query()->get(['title', 'url','parent','menu_type'])
                 @include('layouts.form_contact')
             @elseif(Route::currentRouteName()=='admin.theme.create')
                 @include('layouts.form_theme')
+            @elseif(Route::currentRouteName()=='admin.statistic')
+                @include('layouts.staistic')
             @endif
         </div>
     </div>

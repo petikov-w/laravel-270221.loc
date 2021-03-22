@@ -31,6 +31,12 @@ class SainController extends Controller
         return redirect()->route('home');
     }
 
+    public function  statistic() {
+        $array_arg = ['message' => 'Это панель админстратора',
+            'title' => 'Панель администратора'];
+        return view('admin.admin', $array_arg);
+    }
+
 }
 
 

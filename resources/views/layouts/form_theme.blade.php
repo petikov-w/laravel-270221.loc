@@ -1,6 +1,24 @@
+<?php
+    use App\Models\Theme;
+    $title_theme  = Theme::get('title')->toArray();
+//$menu = Menu:: query()->get(['title', 'url','parent','menu_type'])->where('menu_type','main')->where('parent',0)->toArray();
+?>
 <!--========================== ФОРМА ИЗМЕНЕНИЯ ТЕМ ===========================-->
-<div class="form-contact">
+<div class="z-section">
     <h2>Работа с темами</h2>
+</div>
+
+
+{{--    dd($title_theme);--}}
+<ul class="list-themes">
+    @foreach ($title_theme as $value)
+        <li>{{$value['title']}}</li>
+    @endforeach
+</ul>
+
+
+
+{{--Заготовка формы    --}}
 {{--    <form method="post" action="{{ route('admin.contact-store') }}" class="form-dsg">--}}
 {{--        @csrf--}}
 {{--        <label for="telefon" class="form-label mtop0">Телефон</label>--}}
@@ -17,5 +35,5 @@
 {{--        @enderror--}}
 {{--        <button type="submit" class="form-submit" >Сохранить</button>--}}
 {{--    </form>--}}
-</div>
+
 

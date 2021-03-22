@@ -16,7 +16,7 @@ body {
 
 .content-m {
     /*padding-top: 20px;*/
-    min-height: 80vh;
+    min-height: 75vh;
 }
 
 .footer-m {
@@ -27,6 +27,15 @@ body {
     display: none;
 }
 
+
+.z-section {
+    margin-bottom: 20px;
+}
+
+.list-themes li {
+    color: #718096;
+    margin-bottom: 5px;
+}
 
 /*========================== Логотип =============================*/
 .logo a {

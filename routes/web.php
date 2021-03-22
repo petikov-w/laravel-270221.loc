@@ -41,6 +41,8 @@ Route::group(['middleware'=>'admin', 'namespace'=>'App\Http\Controllers'], funct
 
     Route::get('admin/theme', 'SainController@create')->name('admin.theme.create');
     Route::post('admin/theme', 'SainController@store')->name('admin.theme.store');
+    Route::get('admin/statistic', 'SainController@statistic')->name('admin.statistic');
+//    Route::post('admin/theme', 'SainController@store')->name('admin.theme.store');
 });
 
 
