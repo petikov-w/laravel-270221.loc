@@ -32,15 +32,15 @@ Route::get('users/logout', 'App\Http\Controllers\LoginController@logout')->name(
 
 
 
-
 // ======================= Администратор =============================================
-Route::group(['middleware'=>'admin', 'prefix'=>'admin', 'namespace'=>'App\Http\Controllers\admin'], function (){
+Route::group(['middleware'=>'admin', 'namespace'=>'App\Http\Controllers'], function (){
 //    Route::get('/', 'App\Http\Controllers\admin\MainController@index')->middleware('admin');
-    Route::get('/', 'MainController@index');
-    Route::get('admin', 'MainController@create_contact_form')->name('admin.contact-create');
-    Route::post('admin', 'MainController@store_contact_form')->name('admin.contact-store');
-    Route::get('admin', 'MainController@create_theme_form')->name('admin.theme-create');
-    Route::post('admin', 'MainController@store_theme_form')->name('admin.theme-store');
+    Route::get('admin', 'MainController@index')->name('admin');
+    Route::get('admin/contact', 'MainController@create')->name('admin.contact.create');
+    Route::post('admin/contact', 'MainController@store')->name('admin.contact.store');
+
+    Route::get('admin/theme', 'SainController@create')->name('admin.theme.create');
+    Route::post('admin/theme', 'SainController@store')->name('admin.theme.store');
 });
 
 

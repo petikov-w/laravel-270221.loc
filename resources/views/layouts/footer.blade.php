@@ -25,7 +25,8 @@ use Illuminate\Support\Facades\Auth;
 <div class="footer-auth-box">
 
     @if (Auth::check() && Auth::user()->is_admin==1)
-        <span class="i1 ops"><a href="{{ route('admin.contact-create') }}">Панель администратора</a></span>
+
+        <span class="i1 ops"><a href="{{ route('admin') }}">Панель администратора</a></span>
         <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
     @else
         <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>

@@ -1,6 +1,6 @@
 <!--========================== ФОРМА ИЗМЕНЕНИЯ КОНТАКТНЫХ ДАННЫХ ===========================-->
 <div class="form-contact">
-    <form method="post" action="{{ route('admin.contact-store') }}" class="form-dsg">
+    <form method="post" action="{{ route('admin.contact.store') }}" class="form-dsg">
         @csrf
         <label for="telefon" class="form-label mtop0">Телефон</label>
         <input name="telefon" id="telefon" type="text" class="form-input @error('telefon') @enderror"

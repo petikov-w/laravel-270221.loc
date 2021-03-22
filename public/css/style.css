@@ -1,16 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
-    display: flex;
-    flex-direction: column;
 }
 
-
-body, html {
-    /*margin: 0;*/
-    height: 100%;
+.wrapper {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*min-height: 100%;*/
 }
 
+.content-m {
+    /*padding-top: 20px;*/
+    min-height: 80vh;
+}
+
+.footer-m {
+    /*margin-top: auto;*/
+}
 
 .hidden {
     display: none;
@@ -89,9 +100,7 @@ nav {
     width: 85%;
 }
 
-.content {
-    flex-grow: 1;
-}
+
 
 
 /*======================== Меню ======================================*/
@@ -180,6 +189,7 @@ main-menu li ul li ul {
 }
 
 .s-header {
+    padding-top: 20px;
     color: #11bf16;
 }
 
@@ -240,6 +250,7 @@ main-menu li ul li ul {
 .sidebar-left {
     /*background-color: #e2e8f0;*/
     width: 25%;
+    min-height: 80vh;
     border-right: 1px solid #718096;
 }
 
@@ -414,7 +425,7 @@ main-menu li ul li ul {
 /*====================== Подвал ==============================*/
 .footer {
     display: flex;
-    flex: 0 0 auto;
+    /*flex: 0 0 auto;*/
     align-items: center;
     justify-content: space-between;
     height: 80px;
@@ -427,7 +438,6 @@ main-menu li ul li ul {
 
 .footer-auth-box {
     display: flex;
-    /*flex-direction: column;*/
     justify-content: flex-end;
     align-items: flex-end;
     margin-top: 50px;

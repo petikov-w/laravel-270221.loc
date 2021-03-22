@@ -7,11 +7,17 @@
 </head>
 <body>
     <div class="container">
-        @include('layouts.header')
-        <div class="content">
-            @yield('content')
+        <div class="wrapper">
+            <div class="header-m">
+                @include('layouts.header')
+            </div>
+            <div class="content-m">
+                @yield('content')
+            </div>
+            <div class="footer-m">
+                @include('layouts.footer')
+            </div>
         </div>
-        @include('layouts.footer')
     </div>
     @include('layouts.scripts')
 </body>

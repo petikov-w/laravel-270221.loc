@@ -20,9 +20,9 @@ $menu = Menu:: query()->get(['title', 'url','parent','menu_type'])
             </ul>
         </div>
         <div class="content-area">
-            @if (Route::currentRouteName()=='admin.contact-create')
+            @if (Route::currentRouteName()=='admin.contact.create')
                 @include('layouts.form_contact')
-            @elseif(Route::currentRouteName()=='admin.theme-create')
+            @elseif(Route::currentRouteName()=='admin.theme.create')
                 @include('layouts.form_theme')
             @endif
         </div>
