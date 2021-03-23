@@ -4,7 +4,7 @@
 @endphp
 
 <?php
-    $list_scripts = ['theme.js'];
+    $list_scripts = ['app.js'];
     foreach ($list_scripts as $script) {
 ?>
     <script src="{{ asset($source_dir.$script)}}"></script>

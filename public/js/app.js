@@ -1,0 +1,1 @@
+let theme=document.querySelectorAll(".theme2");for(i=0;i<theme.length;i++)theme[i].addEventListener("click",handler_theme_onclick,!1);function handler_theme_onclick(e){let t=e.target.getAttribute("data-attr");document.location.href="links/"+t}

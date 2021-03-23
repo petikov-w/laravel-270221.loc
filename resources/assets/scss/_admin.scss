@@ -1,0 +1,58 @@
+/*======================== Админ-панель ==========================*/
+.admin-panel {
+    display: flex;
+}
+
+.z-section {
+    margin-bottom: 20px;
+}
+
+.sidebar-left {
+    /*background-color: #e2e8f0;*/
+    width: 25%;
+    min-height: 80vh;
+    border-right: 1px solid #718096;
+}
+
+.content-area {
+    /*background-color: #fde0e0;*/
+    width: 75%;
+    padding: 25px 60px;
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 25px;
+}
+
+.admin-menu-item    {
+    font-size: 18px;
+    font-weight: 500;
+    color: #94A0C8;
+    margin-bottom: 15px;
+}
+
+.admin-menu-item:first-child{
+    /*margin-top: 15px;*/
+}
+
+
+.admin-menu-item a {
+    text-decoration: none;
+    color: #718096;
+}
+
+.admin-menu-item a:hover {
+    color: #ffffff;
+    background-color: #718096;
+    padding: 5px 25px 5px 5px;
+    border-radius: 8px;
+}
+
+.list-themes li {
+    color: #718096;
+    margin-bottom: 5px;
+}

@@ -4,7 +4,7 @@
 @endphp
 
 <?php
-    $list_styles = ['style.css'];
+    $list_styles = ['app.css'];
     foreach ($list_styles as $style) {
 ?>
     <link href="{{ asset($source_dir.$style) }}" rel="stylesheet" >

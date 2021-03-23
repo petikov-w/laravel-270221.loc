@@ -1,0 +1,85 @@
+
+.s-header, .e-header {
+    font-size: 20px;
+    /*color: #11bf16;*/
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.s-header {
+    padding-top: 20px;
+    color: #11bf16;
+}
+
+.s-header p {
+    width: 400px;
+    text-align: center;
+}
+
+.e-header {
+    color: #bf1111;
+}
+
+.sss {
+
+    font-size: 20px;
+    color: #218323;
+    font-weight: bold;
+    text-align: right;
+    width: 20%;
+}
+
+.contact-info {
+    font-size: 20px;
+    color: #116ebf;
+    font-weight: bold;
+}
+
+.contacts a {
+    text-decoration: none;
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.theme-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.theme {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px 30px;
+    border: 2px solid #718096;
+    border-radius: 10px;
+    color: #11bf16;
+    margin-right: 10px;
+}
+
+.theme:hover {
+    border: 2px solid #2a4877;
+    color: #218323;
+}
+
+
+.reg {
+    text-transform: uppercase;
+}
+
+.reg a{
+    text-decoration: none;
+    line-height: 10px;
+    color: #57B846;
+    font-weight: 500;
+}
+
+.reg a:hover {
+    color: #348026;
+}
+
+

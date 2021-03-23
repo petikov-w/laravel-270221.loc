@@ -15,16 +15,16 @@ class PageController extends Controller
 
             switch ($slug) {
 
-                case 'delete-theme':
+                case 'delete-theme2':
                     $array_arg = ['message' => 'Это страница c формой для удаления темы',
                         'title' => 'Страница удаления темы'];
-                    $view = 'delete-theme';
+                    $view = 'delete-theme2';
                     break;
 
-                case 'create-theme':
+                case 'create-theme2':
                     $array_arg = ['message' => 'Это страница c формой для создания новой темы',
                         'title' => 'Страница создания новой темы'];
-                    $view = 'create-theme';
+                    $view = 'create-theme2';
                     break;
 
             }

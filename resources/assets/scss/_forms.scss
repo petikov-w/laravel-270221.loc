@@ -1,0 +1,117 @@
+/*======================= ФОРМЫ =================================*/
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.form-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-auth p {
+    margin-top: 25px;
+    color: #a0b8b8;
+    text-align: center;
+}
+
+.form-dsg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-input, .form-submit {
+    width: 400px;
+    font-size: 16px;
+    font-weight: 500;
+    height: 42px;
+    border-radius: 8px;
+    border: none;
+}
+
+//.form-input {
+//    background-color: #e3eaea;
+//    padding-left: 10px;
+//}
+
+//.form-submit {
+//    background-color: #57B846;
+//    color: #fff;
+//    margin-top: 20px;
+//    width: auto;
+//    padding: 3px 25px;
+//}
+
+/*================ Подпись для поля =====================*/
+.form-label {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.mtop0 {
+    margin-top: 0;
+}
+
+/*=============== Сообщения об ошибках ===================*/
+.invalid-feedback {
+    font-size: 14px;
+    color: #f30505;
+    font-weight: 500;
+    border: 2px solid #f30505;
+    border-radius: 4px;
+    padding: 3px 15px;
+    margin-top: 5px;
+}
+
+.alert-success, .alert-error {
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 7px 20px;
+    margin: 5px 0;
+}
+
+.alert-success {
+    color: #324cf5;
+    background-color: #72f532;
+    border: 2px solid #72f532;
+}
+
+.alert-error {
+    color: #ffffff;
+    background-color: #ff0000;
+    border: 2px solid #ff0000;
+}
+
+/*--------- ?????? Стили для вывода сообщений об ошибках ?????? ---------------*/
+.errors-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 400px;
+}
+
+.alert {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    height: auto;
+    border-radius: 10px;
+}
+
+.alert li {
+    list-style: none;
+}
+
+.alert-danger {
+    background-color: #ff7575;
+}
+/*----------------------------------------------------------------------*/

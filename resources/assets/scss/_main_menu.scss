@@ -1,0 +1,60 @@
+/*======================== Меню ======================================*/
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    color: #718096;
+}
+
+.main-menu li a {
+    text-decoration: none; /*убираем подчеркивание ссылок*/
+    color: #718096;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+.main-menu li {
+    position: relative; /*позиционирование*/
+    /*float: left;*/
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.main-menu li a:hover {
+    color: #ffffff;
+    background-color: #718096;
+
+}
+
+.main-menu ul {
+    position: absolute; /*позиционирование выпадающих блоков*/
+    display: none; /*скрываем блоки*/
+    /*min-width: 90px; !*минимальная ширина выпадающих блоков*!*/
+
+}
+
+.main-menu li:hover ul {
+    display: block; /*показываем блоки при наведении курсора на родителя*/
+    left: 0;
+    top: 25px;
+    /*padding-left: -60px;*/
+    background-color: #ffffff;
+    padding-top: 10px;
+}
+
+/*положение вложенных выпадающих блоков*/
+main-menu li ul li ul {
+    /*left: 100%;*/
+    /*top: 0%;*/
+}
+
+/*---------------------------------------------------------------*/

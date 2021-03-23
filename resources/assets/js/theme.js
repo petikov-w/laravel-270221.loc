@@ -1,4 +1,4 @@
-let theme = document.querySelectorAll('.theme');
+let theme = document.querySelectorAll('.theme2');
 for (i = 0; i < theme.length; i++) {
     theme[i].addEventListener('click', handler_theme_onclick, false);
 }

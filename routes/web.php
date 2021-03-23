@@ -39,10 +39,10 @@ Route::group(['middleware'=>'admin', 'namespace'=>'App\Http\Controllers'], funct
     Route::get('admin/contact', 'MainController@create')->name('admin.contact.create');
     Route::post('admin/contact', 'MainController@store')->name('admin.contact.store');
 
-    Route::get('admin/theme', 'SainController@create')->name('admin.theme.create');
-    Route::post('admin/theme', 'SainController@store')->name('admin.theme.store');
+    Route::get('admin/theme2', 'SainController@create')->name('admin.theme2.create');
+    Route::post('admin/theme2', 'SainController@store')->name('admin.theme2.store');
     Route::get('admin/statistic', 'SainController@statistic')->name('admin.statistic');
-//    Route::post('admin/theme', 'SainController@store')->name('admin.theme.store');
+//    Route::post('admin/theme2', 'SainController@store')->name('admin.theme2.store');
 });
 
 
