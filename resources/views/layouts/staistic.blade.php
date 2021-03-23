@@ -1,6 +1,6 @@
 <?php
     use App\Models\Theme;
-    $title_theme  = Theme::get('title')->toArray();
+    $title_theme  = Theme::get('title')->sort()->toArray();
 //$menu = Menu:: query()->get(['title', 'url','parent','menu_type'])->where('menu_type','main')->where('parent',0)->toArray();
 ?>
 <!--========================== РАЗДЕЛ СТАТИСТИКИ ===========================-->
@@ -8,12 +8,11 @@
         <h2>Статистика сайта</h2>
     </div>
 
-
-
-{{--    dd($title_theme);--}}
+<ul class="list-themes">
     @foreach ($title_theme as $value)
-        <h3>{{$value['title']}}</h3>
+        <li>{{$value['title']}}</li>
     @endforeach
+</ul>
 
 
 

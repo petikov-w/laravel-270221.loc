@@ -11,7 +11,8 @@
     },
     "browserslist": [
         "defaults",
-        "ie 11"],
+        "ie 11"
+    ],
     "devDependencies": {
         "axios": "^0.21",
         "copy-webpack-plugin": "^8.1.0",

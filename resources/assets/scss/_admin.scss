@@ -35,11 +35,6 @@
     margin-bottom: 15px;
 }
 
-.admin-menu-item:first-child{
-    /*margin-top: 15px;*/
-}
-
-
 .admin-menu-item a {
     text-decoration: none;
     color: #718096;
@@ -52,7 +47,17 @@
     border-radius: 8px;
 }
 
-.list-themes li {
-    color: #718096;
-    margin-bottom: 5px;
+
+.list-themes {
+    width: 400px;
+    height: 42px;
+    padding: 5px 25px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #4e83d6;
+    background-color: #e3eaea;
+    border-radius: 8px;
+    border: none;
+    outline: none;
 }
+

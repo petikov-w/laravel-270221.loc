@@ -8,32 +8,22 @@
     <h2>Работа с темами</h2>
 </div>
 
-
-{{--    dd($title_theme);--}}
-<ul class="list-themes">
-    @foreach ($title_theme as $value)
-        <li>{{$value['title']}}</li>
-    @endforeach
-</ul>
-
-
-
 {{--Заготовка формы    --}}
-{{--    <form method="post" action="{{ route('admin.contact-store') }}" class="form-dsg">--}}
-{{--        @csrf--}}
-{{--        <label for="telefon" class="form-label mtop0">Телефон</label>--}}
-{{--        <input name="telefon" id="telefon" type="text" class="form-input @error('telefon') @enderror"--}}
-{{--               value="{{ old('telefon') }}" placeholder="Введите телефон">--}}
-{{--        @error('telefon')--}}
-{{--        <div class="invalid-feedback">{{ $message }}</div>--}}
-{{--        @enderror--}}
-{{--        <label for="email" class="form-label">Адрес электронной почты</label>--}}
-{{--        <input name="email" id="email" type="text" class="form-input @error('email') is-invalid @enderror"--}}
-{{--               value="{{ old('email') }}" placeholder="Введите email">--}}
-{{--        @error('email')--}}
-{{--        <div class="invalid-feedback">{{ $message }}</div>--}}
-{{--        @enderror--}}
-{{--        <button type="submit" class="form-submit" >Сохранить</button>--}}
-{{--    </form>--}}
 
+    <form method="post" action="{{ route('admin.theme.store') }}" class="form-dsg">
+        @csrf
+        <label for="themes" class="form-label mtop0">Название темы</label>
+        <select name="themes" id="themes" type="text" class="list-themes" @error('themes') @enderror>
+            @foreach ($title_theme as $value)
+                <option>{{$value['title']}}</option>
+            @endforeach
+        </select>
+        @error('themes')
+        <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+        <label>Добавить<input type="radio" name="time" value="yes" checked></label>
+        <label>Изменить<input type="radio" name="time" value="no"></label>
+        <label>Удалить<input type="radio" name="time" value="no"></label>
+        <button type="submit" class="form-submit" >Сохранить</button>
+    </form>
 
