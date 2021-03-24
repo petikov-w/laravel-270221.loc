@@ -8,7 +8,7 @@
         <h2>Статистика сайта</h2>
     </div>
 
-<ul class="list-themes">
+<ul class="list-i">
     @foreach ($title_theme as $value)
         <li>{{$value['title']}}</li>
     @endforeach

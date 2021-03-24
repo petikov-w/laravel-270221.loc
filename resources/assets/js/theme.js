@@ -1,5 +1,5 @@
 let theme = document.querySelectorAll('.theme');
-let theme_s = document.querySelectorAll('.list-themes li');
+let theme_s = document.querySelectorAll('.list-i li');
 
 // console.log(theme_s);
 
@@ -19,5 +19,5 @@ for (i = 0; i < theme_s.length; i++) {
 function handler_theme_s_onclick (event) {
     // let id_theme = event.target.getAttribute('data-attr');
     // document.location.href = 'links/'+id_theme;
-    alert(event.target.innerHTML)
+    alert(event.target.innerHTML);
 }
