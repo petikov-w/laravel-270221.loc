@@ -257,6 +257,53 @@ main-menu li ul li ul {
   display: flex;
   width: 400px;
   justify-content: space-between;
+  padding-bottom: 7px;
+}
+
+.new-theme {
+  color: #4ea6d6;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 15px;
+  width: 250px;
+  padding: 5px 0;
+  text-align: center;
+  border: 1px solid #11bf16;
+  border-radius: 8px;
+}
+
+.new-theme a {
+  text-decoration: none;
+  color: #4ea6d6;
+}
+
+.new-theme a:hover {
+  color: #824ed6;
+}
+
+.box-buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100px;
+}
+
+.button-edit {
+  margin-left: 10px;
+  background-color: coral;
+}
+
+.button-delete {
+  background-color: #f30505;
+}
+
+.button-edit, .button-delete {
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.button-edit:hover, .button-delete:hover {
+  opacity: 0.7;
 }
 
 /*======================= ФОРМЫ =================================*/

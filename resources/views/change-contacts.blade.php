@@ -9,7 +9,7 @@
     <!--========================== ФОРМА ИЗМЕНЕНИЯ КОНТАКТНЫХ ДАННЫХ ===========================-->
 <div class="form-contact">
     <div class="s-header"><p>{{$message}}</p></div>
-    <form method="post" action="{{ route('admin.store') }}" class="form-dsg">
+    <form method="post" action="{{ route('Admin.store') }}" class="form-dsg">
         @csrf
         <label for="telefon" class="form-label">Телефон</label>
         <input name="telefon" id="telefon" type="text" class="form-input @error('telefon') @enderror"

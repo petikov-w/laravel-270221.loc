@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactInfoUpdateRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;

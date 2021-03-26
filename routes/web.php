@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 // ======================= Админка ===============================================================
-//Route::get('admin', 'App\Http\Controllers\ContactController@create')->name('admin.create');
-//Route::post('admin', 'App\Http\Controllers\ContactController@store')->name('admin.store');
+//Route::get('Admin', 'App\Http\Controllers\ContactController@create')->name('Admin.create');
+//Route::post('Admin', 'App\Http\Controllers\ContactController@store')->name('Admin.store');
 
 
 // ======================= Главное меню =========================================================
@@ -33,16 +33,15 @@ Route::get('users/logout', 'App\Http\Controllers\LoginController@logout')->name(
 
 
 // ======================= Администратор =============================================
-Route::group(['middleware'=>'admin', 'namespace'=>'App\Http\Controllers'], function (){
-//    Route::get('/', 'App\Http\Controllers\admin\MainController@index')->middleware('admin');
+Route::group(['middleware'=>'Admin', 'namespace'=>'App\Http\Controllers\Admin'], function (){
     Route::get('admin', 'MainController@index')->name('admin');
     Route::get('admin/contact', 'MainController@create')->name('admin.contact.create');
     Route::post('admin/contact', 'MainController@store')->name('admin.contact.store');
 
-    Route::get('admin/theme', 'SainController@create')->name('admin.theme.create');
-    Route::post('admin/theme', 'SainController@store')->name('admin.theme.store');
+    Route::resource('admin/theme','AdminThemeController');
+    Route::resource('admin/users','AdminUsersController');
     Route::get('admin/statistic', 'SainController@statistic')->name('admin.statistic');
-//    Route::post('admin/theme2', 'SainController@store')->name('admin.theme2.store');
+//    Route::post('Admin/theme', 'SainController@store')->name('Admin.theme.store');
 });
 
 
