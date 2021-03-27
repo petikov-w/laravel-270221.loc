@@ -1,0 +1,16 @@
+@import 'colors';
+
+@mixin menu_item () {
+    font-size: 18px;
+    font-weight: 500;
+    a {
+        text-decoration: none;
+        color: $color_menuitem;
+        &:hover {
+            color: $color_menuitem_hover;
+            background-color: $color_menuitem_background;
+            padding: 5px 25px 5px 5px;
+            border-radius: 8px;
+        }
+    }
+}
