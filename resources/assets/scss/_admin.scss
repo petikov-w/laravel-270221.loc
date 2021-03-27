@@ -1,4 +1,11 @@
-/*======================== Админ-панель ==========================*/
+//============================ Цвет ================================
+
+//==== Цвет пункта меню в панели администратора ====
+$colorAPMI: #94A0C8;
+//==== Цвет пункта меню в панели администратора при наведении ====
+$colorAPMIH : #ffffff;
+
+//========================== Админ-панель ==========================
 .admin-panel {
     display: flex;
 }
@@ -8,14 +15,12 @@
 }
 
 .sidebar-left {
-    /*background-color: #e2e8f0;*/
     width: 25%;
     min-height: 80vh;
-    border-right: 1px solid #718096;
+    border-right: $border;
 }
 
 .content-area {
-    /*background-color: #fde0e0;*/
     width: 75%;
     padding: 25px 60px;
 }
@@ -31,7 +36,7 @@
 .admin-menu-item    {
     font-size: 18px;
     font-weight: 500;
-    color: #94A0C8;
+    color: $colorAPMI;
     margin-bottom: 15px;
 }
 
@@ -41,7 +46,7 @@
 }
 
 .admin-menu-item a:hover {
-    color: #ffffff;
+    color: $colorAPMIH;
     background-color: #718096;
     padding: 5px 25px 5px 5px;
     border-radius: 8px;
