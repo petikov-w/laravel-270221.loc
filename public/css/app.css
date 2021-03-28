@@ -287,10 +287,9 @@ main-menu li ul li ul {
 
 .button-edit, .button-delete {
   padding: 3px 10px;
-  border-radius: 5px;
+  border-radius: 7px;
   color: #ffffff;
 }
-
 .button-edit:hover, .button-delete:hover {
   opacity: 0.7;
 }
