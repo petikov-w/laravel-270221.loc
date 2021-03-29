@@ -18,10 +18,6 @@ body {
   min-height: 75vh;
 }
 
-.footer-m {
-  /*margin-top: auto;*/
-}
-
 .hidden {
   display: none;
 }
@@ -79,9 +75,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
-  /*margin-bottom: 30px;*/
   border-bottom: 1px solid #718096;
+  height: 80px;
 }
 
 /*====================== Подвал ==============================*/
@@ -94,21 +89,20 @@ body {
   border-top: 1px solid #718096;
   border-bottom: 1px solid #718096;
 }
-
 .footer-auth-box {
   display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
+  justify-content: flex-end;
   margin-top: 50px;
 }
-
 .footer-auth-box a {
   text-decoration: none;
 }
 
-.i1 {
+.i1 a {
   font-size: 13px;
   font-weight: 600;
+  color: #718096;
   margin-left: 30px;
 }
 
@@ -116,12 +110,7 @@ body {
   opacity: 0.7;
 }
 
-.i1 a {
-  color: #718096;
-}
-
 /*===========================================================*/
-/*======================== Меню ======================================*/
 nav {
   display: flex;
   align-items: center;
@@ -131,59 +120,38 @@ nav {
 
 .main-menu {
   display: flex;
-  list-style: none;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.main-menu-item {
   font-size: 18px;
-  color: #718096;
-}
-
-.main-menu li a {
-  text-decoration: none;
-  /*убираем подчеркивание ссылок*/
-  color: #718096;
-  padding: 5px 15px;
-  border-radius: 10px;
-}
-
-.main-menu li {
-  position: relative;
-  /*позиционирование*/
-  /*float: left;*/
-  white-space: nowrap;
   font-weight: 500;
+  white-space: nowrap;
+  margin-left: 20px;
 }
-
-.main-menu li a:hover {
+.main-menu-item a {
+  text-decoration: none;
+  color: #718096;
+  padding: 5px 10px 5px 10px;
+}
+.main-menu-item a:hover {
   color: #ffffff;
   background-color: #718096;
+  border: none;
+  border-radius: 25px;
 }
 
-.main-menu ul {
-  position: absolute;
-  /*позиционирование выпадающих блоков*/
-  display: none;
-  /*скрываем блоки*/
-  /*min-width: 90px; !*минимальная ширина выпадающих блоков*!*/
+.button-delete, .button-edit {
+  padding: 3px 10px;
+  border-radius: 7px;
+  color: #ffffff;
+}
+.button-delete:hover, .button-edit:hover {
+  opacity: 0.7;
 }
 
-.main-menu li:hover ul {
-  display: block;
-  /*показываем блоки при наведении курсора на родителя*/
-  left: 0;
-  top: 25px;
-  /*padding-left: -60px;*/
-  background-color: #ffffff;
-  padding-top: 10px;
-}
-
-/*положение вложенных выпадающих блоков*/
-main-menu li ul li ul {
-  /*left: 100%;*/
-  /*top: 0%;*/
-}
-
-/*---------------------------------------------------------------*/
 .admin-panel {
   display: flex;
 }
@@ -214,17 +182,19 @@ main-menu li ul li ul {
 .admin-menu-item {
   font-size: 18px;
   font-weight: 500;
+  white-space: nowrap;
   margin-bottom: 15px;
 }
 .admin-menu-item a {
   text-decoration: none;
   color: #718096;
+  padding: 5px 10px 5px 10px;
 }
 .admin-menu-item a:hover {
   color: #ffffff;
   background-color: #718096;
-  padding: 5px 25px 5px 5px;
-  border-radius: 8px;
+  border: none;
+  border-radius: 25px;
 }
 
 .list-themes {
@@ -249,25 +219,27 @@ main-menu li ul li ul {
 
 .item-ts {
   display: flex;
-  width: 400px;
   justify-content: space-between;
   padding-bottom: 7px;
+  width: 400px;
 }
 
 .new-theme {
   font-size: 18px;
   font-weight: 500;
+  white-space: nowrap;
   margin-top: 15px;
 }
 .new-theme a {
   text-decoration: none;
   color: #718096;
+  padding: 5px 10px 5px 10px;
 }
 .new-theme a:hover {
   color: #ffffff;
   background-color: #718096;
-  padding: 5px 25px 5px 5px;
-  border-radius: 8px;
+  border: none;
+  border-radius: 25px;
 }
 
 .box-buttons {
@@ -277,21 +249,12 @@ main-menu li ul li ul {
 }
 
 .button-edit {
-  margin-left: 10px;
   background-color: coral;
+  margin-left: 10px;
 }
 
 .button-delete {
   background-color: #f30505;
-}
-
-.button-edit, .button-delete {
-  padding: 3px 10px;
-  border-radius: 7px;
-  color: #ffffff;
-}
-.button-edit:hover, .button-delete:hover {
-  opacity: 0.7;
 }
 
 /*======================= ФОРМЫ =================================*/
@@ -306,7 +269,6 @@ main-menu li ul li ul {
   flex-direction: column;
   align-items: center;
 }
-
 .form-auth p {
   margin-top: 25px;
   color: #a0b8b8;
@@ -343,9 +305,9 @@ main-menu li ul li ul {
 
 /*================ Подпись для поля =====================*/
 .form-label {
-  color: #000;
   font-size: 16px;
   font-weight: 700;
+  color: #000000;
   margin-bottom: 10px;
   margin-top: 20px;
 }
@@ -357,8 +319,8 @@ main-menu li ul li ul {
 /*=============== Сообщения об ошибках ===================*/
 .invalid-feedback {
   font-size: 14px;
-  color: #f30505;
   font-weight: 500;
+  color: #f30505;
   border: 2px solid #f30505;
   border-radius: 4px;
   padding: 3px 15px;
@@ -385,31 +347,6 @@ main-menu li ul li ul {
   border: 2px solid #ff0000;
 }
 
-/*--------- ?????? Стили для вывода сообщений об ошибках ?????? ---------------*/
-.errors-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 400px;
-}
-
-.alert {
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  height: auto;
-  border-radius: 10px;
-}
-
-.alert li {
-  list-style: none;
-}
-
-.alert-danger {
-  background-color: #ff7575;
-}
-
-/*----------------------------------------------------------------------*/
 /*=============== Блок авторизации ===================*/
 .auth-box {
   display: flex;
@@ -422,9 +359,31 @@ main-menu li ul li ul {
 }
 
 /*=====================================================*/
+.contact-info, .contact-label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+.contacts a {
+  text-decoration: none;
+}
+
+.contact-label {
+  text-align: right;
+  width: 20%;
+  color: #218323;
+}
+.contact-info {
+  color: #116ebf;
+}
+
 .s-header, .e-header {
   font-size: 20px;
-  /*color: #11bf16;*/
   font-weight: bold;
   text-align: left;
   margin-bottom: 20px;
@@ -434,7 +393,6 @@ main-menu li ul li ul {
   padding-top: 20px;
   color: #11bf16;
 }
-
 .s-header p {
   width: 400px;
   text-align: center;
@@ -442,30 +400,6 @@ main-menu li ul li ul {
 
 .e-header {
   color: #bf1111;
-}
-
-.sss {
-  font-size: 20px;
-  color: #218323;
-  font-weight: bold;
-  text-align: right;
-  width: 20%;
-}
-
-.contact-info {
-  font-size: 20px;
-  color: #116ebf;
-  font-weight: bold;
-}
-
-.contacts a {
-  text-decoration: none;
-}
-
-.contacts {
-  display: flex;
-  justify-content: space-between;
-  width: 40%;
 }
 
 .theme-list {
@@ -476,13 +410,12 @@ main-menu li ul li ul {
 .theme {
   font-size: 16px;
   font-weight: 400;
+  color: #11bf16;
   padding: 15px 30px;
   border: 2px solid #718096;
   border-radius: 10px;
-  color: #11bf16;
   margin-right: 10px;
 }
-
 .theme:hover {
   border: 2px solid #2a4877;
   color: #218323;
@@ -491,14 +424,12 @@ main-menu li ul li ul {
 .reg {
   text-transform: uppercase;
 }
-
 .reg a {
   text-decoration: none;
   line-height: 10px;
   color: #57B846;
   font-weight: 500;
 }
-
 .reg a:hover {
   color: #348026;
 }

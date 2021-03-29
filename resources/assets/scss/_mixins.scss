@@ -3,14 +3,34 @@
 @mixin menu_item () {
     font-size: 18px;
     font-weight: 500;
+    white-space: nowrap;
     a {
         text-decoration: none;
         color: $color_menuitem;
+        padding: 5px 10px 5px 10px;
         &:hover {
             color: $color_menuitem_hover;
             background-color: $color_menuitem_background;
-            padding: 5px 25px 5px 5px;
-            border-radius: 8px;
+            border: none;
+            border-radius: 25px;
         }
     }
+}
+
+@mixin font ($font-size, $font-weigth, $font-color) {
+    font-size: $font-size;
+    font-weight: $font-weigth;
+    color: $font-color;
+}
+
+@mixin flex-column($align-items) {
+    display: flex;
+    flex-direction: column;
+    align-items: $align-items;
+}
+
+@mixin flex-row($align-items, $justify-content) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
 }

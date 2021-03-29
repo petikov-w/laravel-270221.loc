@@ -3,8 +3,7 @@
 @section('title-page')@parent {{$title}}@endsection
 
 @section('content')
-    <div class="form-auth">
-
+<div class="form-auth">
     <div class="s-header">{{$message}}</div>
 
     <!--========================== ФОРМА РЕГИСТРАЦИИ НОВОГО ПОЛЬЗОВАТЕЛЯ ======================-->
@@ -36,6 +35,6 @@
         </form>
     </div>
     <!--=======================================================================================-->
-    </div>
+</div>
 @endsection
 

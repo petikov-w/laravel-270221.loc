@@ -7,17 +7,6 @@
         <div class="s-header">{{$message}}</div>
         @include('layouts.alerts')
 
-{{--        <div class="errors-box">--}}
-{{--            @if ($errors->any())--}}
-{{--                <div class="alert alert-danger">--}}
-{{--                    <ul>--}}
-{{--                        @foreach($errors->all() as $error)--}}
-{{--                            <li>{{$error}}</li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            @endif--}}
-{{--        </div>--}}
         <!--========================== ФОРМА АВТОРИЗАЦИИ ПОЛЬЗОВАТЕЛЕЙ ===========================-->
         <div class="form">
             <form method="post" action="{{ route('login.store') }}" class="form-dsg">

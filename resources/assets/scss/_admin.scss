@@ -1,6 +1,6 @@
 @import 'colors';
 @import 'mixins';
-
+@import "template";
 //========================== Админ-панель ==========================
 .admin-panel {
     display: flex;
@@ -67,9 +67,9 @@
 // Пункты списка тем
 .item-ts {
     display: flex;
-    width: 400px;
     justify-content: space-between;
     padding-bottom: 7px;
+    width: 400px;
 }
 
 // Кнопка "Создание новой темы"
@@ -88,20 +88,13 @@
 }
 
 .button-edit {
-    margin-left: 10px;
+    @extend %button-template;
     background-color: coral;
+    margin-left: 10px;
 }
 
 .button-delete {
+    @extend %button-template;
     background-color: #f30505;
 }
 
-
-.button-edit, .button-delete {
-    padding: 3px 10px;
-    border-radius: 7px;
-    color: #ffffff;
-    &:hover {
-        opacity: 0.7;
-    }
-}

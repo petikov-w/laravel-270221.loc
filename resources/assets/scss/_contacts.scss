@@ -1,0 +1,30 @@
+$color_contact_label: #218323;
+$color_contact_info: #116ebf;
+
+%font-contact-template {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    a {
+        text-decoration: none;
+    }
+}
+
+.contact {
+    &-label {
+        @extend %font-contact-template;
+        text-align: right;
+        width: 20%;
+        color: $color_contact_label;
+    }
+    &-info {
+        @extend %font-contact-template;
+        color: $color_contact_info;
+    }
+}
+
