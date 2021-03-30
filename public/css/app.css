@@ -99,6 +99,11 @@ body {
   text-decoration: none;
 }
 
+.i1 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #718096;
+}
 .i1 a {
   font-size: 13px;
   font-weight: 600;

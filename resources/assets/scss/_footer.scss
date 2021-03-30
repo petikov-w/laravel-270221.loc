@@ -20,6 +20,7 @@
 
 
 .i1 {
+    @include font(13px, 600, $color_menuitem);
     a {
         @include font(13px, 600, $color_menuitem);
         margin-left: 30px;

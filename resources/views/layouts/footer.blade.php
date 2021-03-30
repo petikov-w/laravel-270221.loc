@@ -22,13 +22,17 @@ use Illuminate\Support\Facades\Auth;
 @show
 
 <auth>
-<div class="footer-auth-box">
+<span class="footer-auth-box">
 
     @if (Auth::check() && Auth::user()->is_admin==1)
-
+        <input type="file" id="file-input" accept=".url" class="hidden" multiple/>
+        <label for="file-input" class="i1 ops">Добавить ссылки</label>
         <span class="i1 ops"><a href="{{ route('admin') }}">Панель администратора</a></span>
         <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
+
     @else
+        <input type="file" id="file-input" accept=".url" class="hidden" multiple/>
+        <label for="file-input" class="i1 ops"><a href="{{ route('links') }}">Добавить ссылки</a></label>
         <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
     @endif
 </div>

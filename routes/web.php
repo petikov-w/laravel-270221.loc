@@ -44,6 +44,7 @@ Route::group(['middleware'=>'Admin', 'namespace'=>'App\Http\Controllers\Admin'],
 //    Route::post('Admin/theme', 'SainController@store')->name('Admin.theme.store');
 });
 
+Route::get('links', 'LinksController@index')->name('links');
 
 
 //========================= Макросы ==============================================================

@@ -1,6 +1,17 @@
 @import 'colors';
 @import 'mixins';
-@import "template";
+
+
+%button-template {
+    padding: 3px 10px;
+    border-radius: 7px;
+    color: #ffffff;
+    &:hover {
+        opacity: 0.7;
+    }
+    
+}
+
 //========================== Админ-панель ==========================
 .admin-panel {
     display: flex;
