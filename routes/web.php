@@ -44,9 +44,10 @@ Route::group(['middleware'=>'Admin', 'namespace'=>'App\Http\Controllers\Admin'],
 //    Route::post('Admin/theme', 'SainController@store')->name('Admin.theme.store');
 });
 
-Route::get('links', 'LinksController@index')->name('links');
+//Route::get('links', 'App\Http\Controllers\LinksController@index')->name('links');
 
-
+Route::get('upload',['as' => 'upload_form', 'uses' => 'App\Http\Controllers\UploadController@getForm']);
+Route::post('upload',['as' => 'upload_file','uses' => 'App\Http\Controllers\UploadController@upload']);
 //========================= Макросы ==============================================================
 
 Route::get('clear', function () {

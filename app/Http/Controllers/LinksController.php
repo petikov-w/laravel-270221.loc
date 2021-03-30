@@ -10,8 +10,8 @@ class LinksController extends Controller
 {
 
     public function index() {
-        $array_arg = ['message' => 'Наши контакты: ',
-            'title' => 'Страница контактов'];
+        $array_arg = ['message' => 'Список ссылок',
+            'title' => 'Страница ссылок'];
 
         return view('links', $array_arg);
     }

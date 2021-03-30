@@ -31,8 +31,9 @@ use Illuminate\Support\Facades\Auth;
         <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
 
     @else
-        <input type="file" id="file-input" accept=".url" class="hidden" multiple/>
-        <label for="file-input" class="i1 ops"><a href="{{ route('links') }}">Добавить ссылки</a></label>
+{{--        <input type="file" id="file-input" accept=".url" class="hidden" multiple/>--}}
+{{--        <label for="file-input" class="i1 ops"><a href="{{ route('upload_form') }}">Добавить ссылки</a></label>--}}
+        <a href="{{ route('upload_form') }}" class="i1 ops">Добавить ссылки</a>
         <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
     @endif
 </div>

@@ -3,6 +3,6 @@
 @section('title-page')@parent {{$title}}@endsection
 
 @section('content')
-    <div class="s-header">{{$message}} "{{$current_theme}}"</div>
+    <div class="s-header">{{$message}}</div>
 @endsection
 
