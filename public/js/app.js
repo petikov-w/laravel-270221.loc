@@ -141,13 +141,11 @@ let fileInput = document.querySelector('#file-input');
 let dataLabel = document.querySelector('.if-button');
 let info = document.querySelector('.info-button');
 let listFile = document.querySelector('.file-h');
-let Pink = [];
+// let Pink = [];
 
 fileInput.addEventListener('change', function (event) {
     let str ='';
     for (let v of fileInput.files) {
-        // console.log(v['name']);
-        //extractLinkInfo(v);
         str += `<div class="e45">${v['name']}</div><br>`;
     }
     //console.log(Pink);
@@ -158,7 +156,7 @@ fileInput.addEventListener('change', function (event) {
     // console.log(typeof(fileInput.files.length));
     if (fileInput.files.length>0) {
         info.innerHTML = `Выбрано:&nbsp <span class="i1">${fileInput.files.length}</span>&nbsp
-                           Добавить в копилку? <button onclick="dsf(fileInput.files)" class="z-yes">Да</button>
+                           Добавить в копилку? <button onclick="ok_upload_files(fileInput.files)" class="z-yes">Да</button>
                             <button onclick="cansel_upload_files()" class="z-no">Нет</button>`;
     } else {
         info.innerHTML = `Ничего не было выбрано &nbsp
@@ -167,24 +165,62 @@ fileInput.addEventListener('change', function (event) {
 });
 
 
-function dsf(hh) {
+// function dsf(hh) {
+//     for (let h of hh) {
+//         extractLinkInfo(h);
+//     }
+//     console.log(Pink);
+// }
+
+function ok_upload_files(hh) {
+    let linksForUpload=[];
     for (let h of hh) {
-        // console.log(v['name']);
-        extractLinkInfo(h);
+        JSON.stringify(linksForUpload.push((extractLinkInfo(h))));
     }
-    console.log(Pink);
+    console.log(linksForUpload);
+    // let mLink = {linksForUpload};
+    // console.log(mLink);
+    let requestIntoServer = new XMLHttpRequest();
+
+    requestIntoServer.open('POST','http://laravel-270221.loc/api/upload', true)
+
+    // устанавливаем заголовок — выбираем тип контента, который отправится на сервер,
+    // в нашем случае мы явно пишем, что это JSON
+    requestIntoServer.setRequestHeader('Content-Type', 'application/json');
+    requestIntoServer.send(linksForUpload);
+
+    requestIntoServer.onreadystatechange = function () {
+        if (this.readyState==4 && this.status==200) {
+            result.innerHTML = this.responseText;
+        }
+    }
 }
 
+// function  extractLinkInfo(fileLink) {
+//     let reader = new FileReader();
+//     reader.onload = function (event){
+//         Pink.push({
+//             name: delete_extension(fileLink.name),
+//             url: ExtractUrl(reader.result)
+//         });
+//     };
+//     reader.readAsText(fileLink);
+// }
+
 function  extractLinkInfo(fileLink) {
+    let result = [];
     let reader = new FileReader();
     reader.onload = function (event){
-        Pink.push({
+        result.push({
             name: delete_extension(fileLink.name),
             url: ExtractUrl(reader.result)
         });
     };
     reader.readAsText(fileLink);
+    return result;
 }
+
+
 // for (let i = 0; i < fileInput.files.length; i++) {
 //     let file = fileInput.files[i];
 //     let reader = new FileReader();
@@ -222,14 +258,14 @@ function  extractLinkInfo(fileLink) {
 
 
 
-function ok_upload_files(event) {
-    console.log('ПРИВЕТ!');
-    //event.stopPropagation(); // остановка всех текущих JS событий
-    event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
-    // ничего не делаем если files пустой
-    if( typeof files == 'undefined' ) {console.log('files пустой!');  return;}
-
-}
+// function ok_upload_files(event) {
+//     console.log('ПРИВЕТ!');
+//     //event.stopPropagation(); // остановка всех текущих JS событий
+//     event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
+//     // ничего не делаем если files пустой
+//     if( typeof files == 'undefined' ) {console.log('files пустой!');  return;}
+//
+// }
 
 
 // обработка и отправка AJAX запроса при клике на кнопку upload_files
