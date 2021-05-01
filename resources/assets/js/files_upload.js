@@ -3,14 +3,16 @@ let fileInput = document.querySelector('#file-input');
 let dataLabel = document.querySelector('.if-button');
 let info = document.querySelector('.info-button');
 let listFile = document.querySelector('.file-h');
-let zYes = document.querySelector('.z-yes');
+let Pink = [];
 
 fileInput.addEventListener('change', function (event) {
     let str ='';
     for (let v of fileInput.files) {
-        console.log(v['name']);
+        // console.log(v['name']);
+        //extractLinkInfo(v);
         str += `<div class="e45">${v['name']}</div><br>`;
     }
+    //console.log(Pink);
     listFile.innerHTML = str;
 
     add_class(dataLabel, 'hidden');
@@ -18,7 +20,7 @@ fileInput.addEventListener('change', function (event) {
     // console.log(typeof(fileInput.files.length));
     if (fileInput.files.length>0) {
         info.innerHTML = `Выбрано:&nbsp <span class="i1">${fileInput.files.length}</span>&nbsp
-                           Добавить в копилку? <button onclick="" class="z-yes">Да</button>
+                           Добавить в копилку? <button onclick="dsf(fileInput.files)" class="z-yes">Да</button>
                             <button onclick="cansel_upload_files()" class="z-no">Нет</button>`;
     } else {
         info.innerHTML = `Ничего не было выбрано &nbsp
@@ -27,16 +29,58 @@ fileInput.addEventListener('change', function (event) {
 });
 
 
-
-function cansel_upload_files() {
-    rem_class(dataLabel, 'hidden');
-    add_class(info, 'hidden');
-    document.querySelector('.file-h').innerHTML=``;
+function dsf(hh) {
+    for (let h of hh) {
+        // console.log(v['name']);
+        extractLinkInfo(h);
+    }
+    console.log(Pink);
 }
 
-zYes.addEventListener('click', function (event) {
-    console.log('ПОКА!');
-});
+function  extractLinkInfo(fileLink) {
+    let reader = new FileReader();
+    reader.onload = function (event){
+        Pink.push({
+            name: delete_extension(fileLink.name),
+            url: ExtractUrl(reader.result)
+        });
+    };
+    reader.readAsText(fileLink);
+}
+// for (let i = 0; i < fileInput.files.length; i++) {
+//     let file = fileInput.files[i];
+//     let reader = new FileReader();
+//     reader.onload = function (event){
+//         // // Создаем новые элементы
+//         // let link_a = document.createElement('a');
+//         // link_a.href = ExtractUrl(reader.result);
+//         // link_a.className = 'link';
+//         // let div_a = document.createElement('div')
+//         // div_a.className = 'name-link';
+//         // div_a.innerHTML = delete_extension(file.name);
+//         // // Добавляем созданные элементы на страницу
+//         // let main = document.querySelector('main');
+//         // link_a.appendChild(div_a);
+//         // main.appendChild(link_a);
+//         Pink.push({
+//             name: delete_extension(file.name),
+//             url: ExtractUrl(reader.result)
+//         });
+//         //console.log(Pink);
+//     };
+//     reader.readAsText(file);
+// }
+
+
+// function cansel_upload_files() {
+//     rem_class(dataLabel, 'hidden');
+//     add_class(info, 'hidden');
+//     document.querySelector('.file-h').innerHTML=``;
+// }
+
+// zYes.addEventListener('click', function (event) {
+//     console.log('ПОКА!');
+// });
 
 
 

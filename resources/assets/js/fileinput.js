@@ -68,20 +68,20 @@
 
 
 
-
-
-
-function rem_class(eldom, d_class) {
-    if (eldom.classList.contains(d_class)) {
-        eldom.classList.remove(d_class)
-    }
-}
-
-function add_class(eldom, d_class) {
-    if (!eldom.classList.contains(d_class)) {
-        eldom.classList.add(d_class)
-    }
-}
+//
+//
+//
+// function rem_class(eldom, d_class) {
+//     if (eldom.classList.contains(d_class)) {
+//         eldom.classList.remove(d_class)
+//     }
+// }
+//
+// function add_class(eldom, d_class) {
+//     if (!eldom.classList.contains(d_class)) {
+//         eldom.classList.add(d_class)
+//     }
+// }
 
 function add_links() {
     // rem_class(dataLabel, 'hidden');

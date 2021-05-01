@@ -68,20 +68,20 @@
 
 
 
-
-
-
-function rem_class(eldom, d_class) {
-    if (eldom.classList.contains(d_class)) {
-        eldom.classList.remove(d_class)
-    }
-}
-
-function add_class(eldom, d_class) {
-    if (!eldom.classList.contains(d_class)) {
-        eldom.classList.add(d_class)
-    }
-}
+//
+//
+//
+// function rem_class(eldom, d_class) {
+//     if (eldom.classList.contains(d_class)) {
+//         eldom.classList.remove(d_class)
+//     }
+// }
+//
+// function add_class(eldom, d_class) {
+//     if (!eldom.classList.contains(d_class)) {
+//         eldom.classList.add(d_class)
+//     }
+// }
 
 function add_links() {
     // rem_class(dataLabel, 'hidden');
@@ -141,14 +141,16 @@ let fileInput = document.querySelector('#file-input');
 let dataLabel = document.querySelector('.if-button');
 let info = document.querySelector('.info-button');
 let listFile = document.querySelector('.file-h');
-let zYes = document.querySelector('.z-yes');
+let Pink = [];
 
 fileInput.addEventListener('change', function (event) {
     let str ='';
     for (let v of fileInput.files) {
-        console.log(v['name']);
+        // console.log(v['name']);
+        //extractLinkInfo(v);
         str += `<div class="e45">${v['name']}</div><br>`;
     }
+    //console.log(Pink);
     listFile.innerHTML = str;
 
     add_class(dataLabel, 'hidden');
@@ -156,7 +158,7 @@ fileInput.addEventListener('change', function (event) {
     // console.log(typeof(fileInput.files.length));
     if (fileInput.files.length>0) {
         info.innerHTML = `Выбрано:&nbsp <span class="i1">${fileInput.files.length}</span>&nbsp
-                           Добавить в копилку? <button onclick="" class="z-yes">Да</button>
+                           Добавить в копилку? <button onclick="dsf(fileInput.files)" class="z-yes">Да</button>
                             <button onclick="cansel_upload_files()" class="z-no">Нет</button>`;
     } else {
         info.innerHTML = `Ничего не было выбрано &nbsp
@@ -165,16 +167,58 @@ fileInput.addEventListener('change', function (event) {
 });
 
 
-
-function cansel_upload_files() {
-    rem_class(dataLabel, 'hidden');
-    add_class(info, 'hidden');
-    document.querySelector('.file-h').innerHTML=``;
+function dsf(hh) {
+    for (let h of hh) {
+        // console.log(v['name']);
+        extractLinkInfo(h);
+    }
+    console.log(Pink);
 }
 
-zYes.addEventListener('click', function (event) {
-    console.log('ПОКА!');
-});
+function  extractLinkInfo(fileLink) {
+    let reader = new FileReader();
+    reader.onload = function (event){
+        Pink.push({
+            name: delete_extension(fileLink.name),
+            url: ExtractUrl(reader.result)
+        });
+    };
+    reader.readAsText(fileLink);
+}
+// for (let i = 0; i < fileInput.files.length; i++) {
+//     let file = fileInput.files[i];
+//     let reader = new FileReader();
+//     reader.onload = function (event){
+//         // // Создаем новые элементы
+//         // let link_a = document.createElement('a');
+//         // link_a.href = ExtractUrl(reader.result);
+//         // link_a.className = 'link';
+//         // let div_a = document.createElement('div')
+//         // div_a.className = 'name-link';
+//         // div_a.innerHTML = delete_extension(file.name);
+//         // // Добавляем созданные элементы на страницу
+//         // let main = document.querySelector('main');
+//         // link_a.appendChild(div_a);
+//         // main.appendChild(link_a);
+//         Pink.push({
+//             name: delete_extension(file.name),
+//             url: ExtractUrl(reader.result)
+//         });
+//         //console.log(Pink);
+//     };
+//     reader.readAsText(file);
+// }
+
+
+// function cansel_upload_files() {
+//     rem_class(dataLabel, 'hidden');
+//     add_class(info, 'hidden');
+//     document.querySelector('.file-h').innerHTML=``;
+// }
+
+// zYes.addEventListener('click', function (event) {
+//     console.log('ПОКА!');
+// });
 
 
 
@@ -248,28 +292,115 @@ function ok_upload_files(event) {
 
 // });
 
-let file = document.querySelectorAll('.theme');
+function rem_class(eldom, d_class) {
+    if (eldom.classList.contains(d_class)) {
+        eldom.classList.remove(d_class)
+    }
+}
 
-// let theme = document.querySelectorAll('.theme');
-// let theme_s = document.querySelectorAll('.list-i li');
-//
-// // console.log(theme_s);
-//
-// for (i = 0; i < theme.length; i++) {
-//     theme[i].addEventListener('click', handler_theme_onclick, false);
-// }
-//
-// function handler_theme_onclick (event) {
-//     let id_theme = event.target.getAttribute('data-attr');
-//     document.location.href = 'links/'+id_theme;
-// }
-//
-// for (i = 0; i < theme_s.length; i++) {
-//     theme_s[i].addEventListener('click', handler_theme_s_onclick, false);
-// }
-//
-// function handler_theme_s_onclick (event) {
-//     // let id_theme = event.target.getAttribute('data-attr');
-//     // document.location.href = 'links/'+id_theme;
-//     alert(event.target.innerHTML);
-// }
+function add_class(eldom, d_class) {
+    if (!eldom.classList.contains(d_class)) {
+        eldom.classList.add(d_class)
+    }
+}
+
+function cansel_links() {
+    rem_class(dataLabel, 'hidden');
+    add_class(info, 'hidden');
+    // rem_class(dataLabel, 'last');
+    // add_class(info, 'last');
+    // rem_class(info, 'first');
+    // add_class(dataLabel, 'first');
+}
+
+function cansel_upload_files() {
+    rem_class(dataLabel, 'hidden');
+    add_class(info, 'hidden');
+    document.querySelector('.file-h').innerHTML=``;
+}
+
+
+
+function numerals(number) {
+    let s_num;
+    let flag_11_19 = true;
+    if (number > 10) {
+        let jn0 = Number(number.toString().slice(-2));
+        if(jn0>10 && jn0<20) {s_num='ссылок'
+        } else {flag_11_19 = false;}
+    } else if (number <= 10) {flag_11_19 = false;}
+
+    if (!flag_11_19) {
+        switch (number.toString().substr(-1,1)){
+            case '1':
+                s_num = 'ссылка';
+                break;
+            case '2':
+            case '3':
+            case '4':
+                s_num = 'ссылки';
+                break;
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '0':
+                s_num = 'ссылок';
+                break;
+        }
+    }
+    return s_num;
+}
+
+function delete_extension(source) {
+    let end_pos = source.indexOf('.url');
+    return source.slice(0,end_pos);
+}
+
+function ExtractUrl(source) {
+    let start_pos = source.indexOf('URL');
+    let end_pos = source.indexOf('/?');
+    let result = '';
+    if (start_pos>0 && end_pos>0) {
+        result = source.slice(start_pos+4, end_pos+1)
+    } else if (start_pos>0 && end_pos<0) {
+        result = source.slice(start_pos+4)
+    }
+    return result;
+}
+
+function add_links() {
+    rem_class(dataLabel, 'hidden');
+    add_class(info, 'hidden');
+    rem_class(dataLabel, 'last');
+    add_class(info, 'last');
+    rem_class(info, 'first');
+    add_class(dataLabel, 'first');
+    let path_to_handler = 'http://www-061220/addlinks.php';
+    let mLink = {Pink};
+    //console.log(mLink);
+    let jsonLink = JSON.stringify(mLink);
+    //console.log(jsonLink);
+    let result = document.querySelector('.result');
+    let requestIntoServer = new XMLHttpRequest();
+
+    requestIntoServer.open('POST',path_to_handler, true)
+
+    // устанавливаем заголовок — выбираем тип контента, который отправится на сервер,
+    // в нашем случае мы явно пишем, что это JSON
+    requestIntoServer.setRequestHeader('Content-Type', 'application/json');
+    requestIntoServer.send(jsonLink);
+
+
+
+// Создаем экземпляр объекта запроса на сервер,
+// когда придёт ответ на наше обращение к серверу, мы его обработаем здесь
+// Создаем реакцию объекта на изменение состояния
+    requestIntoServer.onreadystatechange = function () {
+        if (this.readyState==4 && this.status==200) {
+            result.innerHTML = this.responseText;
+        }
+    }
+}
+

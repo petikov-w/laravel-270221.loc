@@ -31,14 +31,15 @@ class UploadController extends Controller
 
     public function upload(Request $request)
     {
-        foreach ($request->file() as $file) {
-            foreach ($file as $f) {
-//                $f->move(storage_path('images'), time().'_'.$f->getClientOriginalName());
-                $f->move('./temp/', time().'_'.$f->getClientOriginalName());
-            }
-        }
-        return response()->json($request);
-//        return "Успех";
+        dd($request);
+//        foreach ($request->file() as $file) {
+//            foreach ($file as $f) {
+////                $f->move(storage_path('images'), time().'_'.$f->getClientOriginalName());
+//                $f->move('./temp/', time().'_'.$f->getClientOriginalName());
+//            }
+//        }
+//        return response()->json($file);
+////        return "Успех";
 
 
 
