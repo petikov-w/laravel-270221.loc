@@ -11,7 +11,7 @@ require('laravel-mix-polyfill');
 mix
     // Обрабатываем JS
 
-.scripts(['resources/assets/js/theme.js'],
+.scripts(['resources/assets/js/*.js'],
      'public/js/app.js'
     )
     // Используем полифиллы

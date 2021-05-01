@@ -4,7 +4,7 @@
 @endphp
 
 <?php
-    $list_scripts = ['app.js'];
+    $list_scripts = ['jquery-3.6.0.min.js','app.js'];
     foreach ($list_scripts as $script) {
 ?>
     <script src="{{ asset($source_dir.$script)}}"></script>

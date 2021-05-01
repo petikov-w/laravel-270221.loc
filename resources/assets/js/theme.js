@@ -1,3 +1,5 @@
+let file = document.querySelectorAll('.theme');
+
 // let theme = document.querySelectorAll('.theme');
 // let theme_s = document.querySelectorAll('.list-i li');
 //

@@ -22,21 +22,30 @@ use Illuminate\Support\Facades\Auth;
 @show
 
 <auth>
-<span class="footer-auth-box">
+<div class="footer-auth-box">
 
     @if (Auth::check() && Auth::user()->is_admin==1)
-        <input type="file" id="file-input" accept=".url" class="hidden" multiple/>
-        <label for="file-input" class="i1 ops">Добавить ссылки</label>
+        <div class="i1 ops">Добавить ссылки</div>
+{{--        <a href="{{ route('upload_form') }}" class="i1 ops">Добавить ссылки</a>--}}
         <span class="i1 ops"><a href="{{ route('admin') }}">Панель администратора</a></span>
-        <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
-
-    @else
-{{--        <input type="file" id="file-input" accept=".url" class="hidden" multiple/>--}}
-{{--        <label for="file-input" class="i1 ops"><a href="{{ route('upload_form') }}">Добавить ссылки</a></label>--}}
-        <a href="{{ route('upload_form') }}" class="i1 ops">Добавить ссылки</a>
-        <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
+    @elseif (Auth::check())
+        <input type="file" id="file-input" accept=".url" class="inputfile" multiple/>
+        <label for="file-input" class="input-button">
+            <span class="i1 ops if-button">Добавить ссылки 18+</span>
+        </label>
+        <span class="info-button hidden"></span>
+{{--        <div class="i1 ops">Добавить ссылки</div>--}}
+{{--        <a href="{{ route('upload_form') }}" class="i1 ops">Добавить ссылки</a>--}}
     @endif
+    <span class="i1"><a href="#">Copyright &copy; Petikov Studio 2020-2021</a></span>
 </div>
 </auth>
 
 </div>
+
+@section('load-files')
+    <input type="file" id="file-input" accept=".url" class="inputfile" multiple/>
+    <label for="file-input" class="input-button">
+        <span class="if-button">Добавить ссылки 18+</span>
+    </label>
+@endsection

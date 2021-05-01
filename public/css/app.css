@@ -438,3 +438,22 @@ nav {
 .reg a:hover {
   color: #348026;
 }
+
+.inputfile {
+  display: none;
+  width: 400px;
+}
+
+.first {
+  order: 1;
+}
+
+.last {
+  order: -1;
+}
+
+.e45 {
+  color: #57B846;
+  font-weight: 600;
+  font-size: 16px;
+}
