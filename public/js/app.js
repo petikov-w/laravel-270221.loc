@@ -175,25 +175,38 @@ fileInput.addEventListener('change', function (event) {
 function ok_upload_files(hh) {
     let linksForUpload=[];
     for (let h of hh) {
-        JSON.stringify(linksForUpload.push((extractLinkInfo(h))));
+        // JSON.stringify(linksForUpload.push((extractLinkInfo(h))));
+         linksForUpload.push((extractLinkInfo(h)));
     }
-    console.log(linksForUpload);
-    // let mLink = {linksForUpload};
+    //console.log(linksForUpload);
+    // console.log(linksForUpload);
+    let mLink = {linksForUpload};
+
+    $.ajax({
+        url: "http://laravel-270221.loc/api/upload",
+        type: "POST",
+        dataType: "json",
+        data: {linksForUpload},
+        success(data) {
+            console.log(data); }
+    });
+
+
+
     // console.log(mLink);
-    let requestIntoServer = new XMLHttpRequest();
-
-    requestIntoServer.open('POST','http://laravel-270221.loc/api/upload', true)
-
+    //let requestIntoServer = new XMLHttpRequest();
+    //requestIntoServer.open("POST","/api/upload", true)
     // устанавливаем заголовок — выбираем тип контента, который отправится на сервер,
     // в нашем случае мы явно пишем, что это JSON
-    requestIntoServer.setRequestHeader('Content-Type', 'application/json');
-    requestIntoServer.send(linksForUpload);
+    //requestIntoServer.setRequestHeader('Content-Type', 'application/json');
+    //requestIntoServer.send(mLink);
+    // requestIntoServer.onreadystatechange = function () {
+    //     if (this.readyState==4 && this.status==200) {
+    //         console.log(this.responseText);
+    //     }
+    // }
 
-    requestIntoServer.onreadystatechange = function () {
-        if (this.readyState==4 && this.status==200) {
-            result.innerHTML = this.responseText;
-        }
-    }
+
 }
 
 // function  extractLinkInfo(fileLink) {
@@ -207,16 +220,39 @@ function ok_upload_files(hh) {
 //     reader.readAsText(fileLink);
 // }
 
+// function  extractLinkInfo(fileLink) {
+//     let result = [];
+//     let reader = new FileReader();
+//     reader.onload = function (event){
+//         result.push({
+//             "name": delete_extension(fileLink.name),
+//             "url": ExtractUrl(reader.result)
+//         });
+//     };
+//     reader.readAsText(fileLink);
+//     return result;
+// }
+
 function  extractLinkInfo(fileLink) {
+    // let result = '';
     let result = [];
+
     let reader = new FileReader();
     reader.onload = function (event){
-        result.push({
-            name: delete_extension(fileLink.name),
-            url: ExtractUrl(reader.result)
-        });
+        // let jsonLink = [];
+        let link = {name: delete_extension(fileLink.name),
+            url: ExtractUrl(reader.result)};
+        // result = JSON.stringify(link);
+        // jsonLink = JSON.stringify(link);
+        // let ass = JSON.stringify(link);
+        // console.log(typeof ass);
+        result.push(JSON.stringify(link));
+        //  result = JSON.stringify(link);
     };
     reader.readAsText(fileLink);
+
+    // console.log(result);
+    // console.log(typeof result);
     return result;
 }
 
