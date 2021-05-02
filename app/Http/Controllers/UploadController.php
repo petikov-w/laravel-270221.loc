@@ -31,6 +31,11 @@ class UploadController extends Controller
 
     public function upload(Request $request)
     {
+
+        if ($request->name) {
+           $createLink = Link::firstOrCreate([ 'url' => $request->url],
+                                ['title' => $request->name]);
+
         dd($request);
 //        foreach ($request->file() as $file) {
 //            foreach ($file as $f) {
@@ -40,9 +45,6 @@ class UploadController extends Controller
 //        }
 //        return response()->json($file);
 ////        return "Успех";
-
-
-
 //      for ($i=0; $i<count($_FILES['file']['name']); $i++) {
 //          move_uploaded_file($_FILES['file']['tmp_name'][$i], './temp/' . $_FILES['file']['name'][$i]);
 //            $filename = './temp/' . $_FILES['file']['name'][$i];
@@ -87,4 +89,5 @@ class UploadController extends Controller
 //            'title' => 'Главная страница']);
 
     }
+}
 }
