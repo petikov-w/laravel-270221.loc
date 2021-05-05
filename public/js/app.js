@@ -141,7 +141,13 @@ let fileInput = document.querySelector('#file-input');
 let dataLabel = document.querySelector('.if-button');
 let info = document.querySelector('.info-button');
 let listFile = document.querySelector('.file-h');
-// let Pink = [];
+
+
+// == Проверка подключения jquery ==
+// $(document).ready(function(){
+//     alert(jQuery.fn.jquery);
+// });
+//==================================
 
 fileInput.addEventListener('change', function (event) {
     let str ='';
@@ -165,33 +171,97 @@ fileInput.addEventListener('change', function (event) {
 });
 
 
-// function dsf(hh) {
-//     for (let h of hh) {
-//         extractLinkInfo(h);
-//     }
-//     console.log(Pink);
-// }
-
 function ok_upload_files(hh) {
-    let linksForUpload=[];
-    for (let h of hh) {
-        // JSON.stringify(linksForUpload.push((extractLinkInfo(h))));
-         linksForUpload.push((extractLinkInfo(h)));
+        let linksForUpload=[];
+        console.log(hh);
+        for (let h of hh) {
+              linksForUpload.push(extractLinkInfo(h));
+        }
+        console.log('<<=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=>>');
+        console.log(linksForUpload);
+        let mLink = linksForUpload;
+    let link =[];
+    let sts =[];
+
+
+    // for (let key in arr) {
+    //     alert( arr[key] ); // Яблоко, Апельсин, Груша
+    // }
+
+
+
+    for (let value of linksForUpload) {
+         console.log(`значение = ${value["url"]}`);
+        //console.log(h.name);
+        // console.log(h.name[0]);
     }
-    //console.log(linksForUpload);
-    // console.log(linksForUpload);
-    let mLink = {linksForUpload};
+    console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
+    console.log(sts);
+       // console.log(j1);
 
-    $.ajax({
-        url: "http://laravel-270221.loc/api/upload",
-        type: "POST",
-        dataType: "json",
-        data: {linksForUpload},
-        success(data) {
-            console.log(data); }
-    });
+//====================================
+//==============  fetch  =============
+//====================================
+
+                    // Пример получения конкретной темы
+                    // fetch('/api/getthemes/6')
+                    //     .then(response => response.json())
+                    //     .then(json => console.log(json))
+
+                    // fetch('/api/upload',
+                    //     {
+                    //     method: 'POST',
+                    //     body: {"title": "Привет"},
+                    //     headers: {'Content-type': 'application/json; charset=UTF-8',},
+                    // }).then((response) => response.json())
+                    //  .then((json) => console.log(json));
+
+//====================================
+//============ fetch (end) ===========
+//====================================
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//====================================
+//========== XMLHttpRequest ==========
+//====================================
+                    //     let xhr = new XMLHttpRequest();
+                    //     let requestUrl = '/api/getthemes/5';
+                    //
+                    //     xhr.open('get', requestUrl);
+                    //     xhr.responseType = 'json';
+                    //     xhr.onload = () => {
+                    //         if (xhr.status >= 400) {
+                    //             console.error(xhr.response);
+                    //         } else {
+                    //             console.log(xhr.response);
+                    //         }
+                    //     }
+                    //     xhr.onerror = () => {
+                    //         console.log(xhr.response);
+                    //     }
+                    //     xhr.send();
+// let body = [{
+//             name: 'Владимир',
+//             age: 56
+//         },
+//         {
+//             name: 'Ольга',
+//             age: 53
+//         }];
+
+ let body = sts;
+    console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
+    console.log(body);
 
 
+let requestUrl = '/api/getthemes/6';
+// sendRequest('get', requestUrl).then(data =>console.log(data))
+//                               .catch(err => console.log(err));
+sendRequest('post', '/api/upload', body).then(data =>console.log(data))
+                                        .catch(err => console.log(err));
+//====================================
+//========== XMLHttpRequest (end) ====
+//====================================
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     // console.log(mLink);
     //let requestIntoServer = new XMLHttpRequest();
@@ -209,160 +279,59 @@ function ok_upload_files(hh) {
 
 }
 
-// function  extractLinkInfo(fileLink) {
-//     let reader = new FileReader();
-//     reader.onload = function (event){
-//         Pink.push({
-//             name: delete_extension(fileLink.name),
-//             url: ExtractUrl(reader.result)
-//         });
-//     };
-//     reader.readAsText(fileLink);
-// }
+function sendRequest(metod, url, body=null) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open(metod, url);
+        xhr.responseType = 'json';
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = () => {
+            if (xhr.status >= 400) {
+                reject(xhr.response);
+            } else {
+                resolve(xhr.response);
+            }
+        }
+        xhr.onerror = () => {
+            reject(xhr.response);
+        }
 
-// function  extractLinkInfo(fileLink) {
-//     let result = [];
-//     let reader = new FileReader();
-//     reader.onload = function (event){
-//         result.push({
-//             "name": delete_extension(fileLink.name),
-//             "url": ExtractUrl(reader.result)
-//         });
-//     };
-//     reader.readAsText(fileLink);
-//     return result;
-// }
+        console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+        console.log(body);
 
-function  extractLinkInfo(fileLink) {
-    // let result = '';
-    let result = [];
-
-    let reader = new FileReader();
-    reader.onload = function (event){
-        // let jsonLink = [];
-        let link = {name: delete_extension(fileLink.name),
-            url: ExtractUrl(reader.result)};
-        // result = JSON.stringify(link);
-        // jsonLink = JSON.stringify(link);
-        // let ass = JSON.stringify(link);
-        // console.log(typeof ass);
-        result.push(JSON.stringify(link));
-        //  result = JSON.stringify(link);
-    };
-    reader.readAsText(fileLink);
-
-    // console.log(result);
-    // console.log(typeof result);
-    return result;
+        xhr.send(JSON.stringify(body));
+    })
 }
 
 
-// for (let i = 0; i < fileInput.files.length; i++) {
-//     let file = fileInput.files[i];
-//     let reader = new FileReader();
-//     reader.onload = function (event){
-//         // // Создаем новые элементы
-//         // let link_a = document.createElement('a');
-//         // link_a.href = ExtractUrl(reader.result);
-//         // link_a.className = 'link';
-//         // let div_a = document.createElement('div')
-//         // div_a.className = 'name-link';
-//         // div_a.innerHTML = delete_extension(file.name);
-//         // // Добавляем созданные элементы на страницу
-//         // let main = document.querySelector('main');
-//         // link_a.appendChild(div_a);
-//         // main.appendChild(link_a);
-//         Pink.push({
-//             name: delete_extension(file.name),
-//             url: ExtractUrl(reader.result)
-//         });
-//         //console.log(Pink);
-//     };
-//     reader.readAsText(file);
-// }
 
+    function extractLinkInfo(fileLink) {
+        let result = [];
+        // let link ={
+        //     name: "",
+        //     url: "",
+        // };
 
-// function cansel_upload_files() {
-//     rem_class(dataLabel, 'hidden');
-//     add_class(info, 'hidden');
-//     document.querySelector('.file-h').innerHTML=``;
-// }
+        let reader = new FileReader();
+        reader.onload = function (event) {
+            result.push({
+                name: delete_extension(fileLink.name),
+                url: ExtractUrl(reader.result)
+            });
+       };
+       reader.readAsText(fileLink);
 
-// zYes.addEventListener('click', function (event) {
-//     console.log('ПОКА!');
-// });
+        let link ={};
+        for (let h of result) {
+            // link["name"] = h.name[0];
+            // link["url"] = h.url;
+            console.log(h.name[0]);
+        }
 
+        console.log(link);
+        return result;
+}
 
-
-// function ok_upload_files(event) {
-//     console.log('ПРИВЕТ!');
-//     //event.stopPropagation(); // остановка всех текущих JS событий
-//     event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
-//     // ничего не делаем если files пустой
-//     if( typeof files == 'undefined' ) {console.log('files пустой!');  return;}
-//
-// }
-
-
-// обработка и отправка AJAX запроса при клике на кнопку upload_files
-// $('.z-yes').on( 'click', function( event ){
-//     alert('ПРИВЕТ!');
-
-    // event.stopPropagation(); // остановка всех текущих JS событий
-    // event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
-    //
-    // // ничего не делаем если files пустой
-    // if( typeof files == 'undefined' ) return;
-    //
-    // // создадим объект данных формы
-    // var data = new FormData();
-    //
-    // // заполняем объект данных файлами в подходящем для отправки формате
-    // $.each( files, function( key, value ){
-    //     data.append( key, value );
-    // });
-    //
-    // // добавим переменную для идентификации запроса
-    // data.append( 'my_file_upload', 1 );
-    //
-    // // AJAX запрос
-    // $.ajax({
-    //     url         : './submit.php',
-    //     type        : 'POST', // важно!
-    //     data        : data,
-    //     cache       : false,
-    //     dataType    : 'json',
-    //     // отключаем обработку передаваемых данных, пусть передаются как есть
-    //     processData : false,
-    //     // отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
-    //     contentType : false,
-    //     // функция успешного ответа сервера
-    //     success     : function( respond, status, jqXHR ){
-    //
-    //         // ОК - файлы загружены
-    //         if( typeof respond.error === 'undefined' ){
-    //             // выведем пути загруженных файлов в блок '.ajax-reply'
-    //             var files_path = respond.files;
-    //             var html = '';
-    //             $.each( files_path, function( key, val ){
-    //                 html += val +'<br>';
-    //             } )
-    //
-    //             $('.ajax-reply').html( html );
-    //         }
-    //         // ошибка
-    //         else {
-    //             console.log('ОШИБКА: ' + respond.data );
-    //         }
-    //     },
-    //     // функция ошибки ответа сервера
-    //     error: function( jqXHR, status, errorThrown ){
-    //         console.log( 'ОШИБКА AJAX запроса: ' + status, jqXHR );
-    //     }
-    //
-    // });
-
-// });
 
 function rem_class(eldom, d_class) {
     if (eldom.classList.contains(d_class)) {

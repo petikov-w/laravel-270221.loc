@@ -32,9 +32,9 @@ class UploadController extends Controller
     public function upload(Request $request)
     {
 
-        if ($request->name) {
-           $createLink = Link::firstOrCreate([ 'url' => $request->url],
-                                ['title' => $request->name]);
+//        if ($request->name) {
+//           $createLink = Link::firstOrCreate([ 'url' => $request->url],
+//                                ['title' => $request->name]);
 
         dd($request);
 //        foreach ($request->file() as $file) {
@@ -89,5 +89,4 @@ class UploadController extends Controller
 //            'title' => 'Главная страница']);
 
     }
-}
 }
