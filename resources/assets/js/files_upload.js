@@ -3,6 +3,7 @@ let fileInput = document.querySelector('#file-input');
 let dataLabel = document.querySelector('.if-button');
 let info = document.querySelector('.info-button');
 let listFile = document.querySelector('.file-h');
+let linksInfo = [];
 
 
 // == Проверка подключения jquery ==
@@ -13,9 +14,19 @@ let listFile = document.querySelector('.file-h');
 
 fileInput.addEventListener('change', function (event) {
     let str ='';
-    for (let v of fileInput.files) {
-        str += `<div class="e45">${v['name']}</div><br>`;
+    for (let hh of fileInput.files) {
+        let reader = new FileReader();
+        reader.onload = function (event) {
+            linksInfo.push({
+                name: delete_extension(hh.name),
+                url: ExtractUrl(reader.result)
+            });
+        };
+        reader.readAsText(hh);
+        str += `<div class="e45">${hh['name']}</div><br>`;
     }
+
+
     //console.log(Pink);
     listFile.innerHTML = str;
 
@@ -24,7 +35,7 @@ fileInput.addEventListener('change', function (event) {
     // console.log(typeof(fileInput.files.length));
     if (fileInput.files.length>0) {
         info.innerHTML = `Выбрано:&nbsp <span class="i1">${fileInput.files.length}</span>&nbsp
-                           Добавить в копилку? <button onclick="ok_upload_files(fileInput.files)" class="z-yes">Да</button>
+                           Добавить в копилку? <button onclick="ok_upload_files()" class="z-yes">Да</button>
                             <button onclick="cansel_upload_files()" class="z-no">Нет</button>`;
     } else {
         info.innerHTML = `Ничего не было выбрано &nbsp
@@ -33,33 +44,26 @@ fileInput.addEventListener('change', function (event) {
 });
 
 
-function ok_upload_files(hh) {
-        let linksForUpload=[];
-        console.log(hh);
-        for (let h of hh) {
-              linksForUpload.push(extractLinkInfo(h));
-        }
+function ok_upload_files() {
+
+        // console.log(hh);
+        // for (let h of hh) {
+        //  //     linksForUpload.push(extractLinkInfo(h));
+        //     let reader = new FileReader();
+        //     reader.onload = function (event) {
+        //         linksInfo.push({
+        //             name: delete_extension(hh.name),
+        //             url: ExtractUrl(reader.result)
+        //         });
+        //     };
+        //     reader.readAsText(hh);
+        // }
+
         console.log('<<=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=>>');
-        console.log(linksForUpload);
-        let mLink = linksForUpload;
-    let link =[];
-    let sts =[];
+        console.log(linksInfo);
 
+        // console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
 
-    // for (let key in arr) {
-    //     alert( arr[key] ); // Яблоко, Апельсин, Груша
-    // }
-
-
-
-    for (let value of linksForUpload) {
-         console.log(`значение = ${value["url"]}`);
-        //console.log(h.name);
-        // console.log(h.name[0]);
-    }
-    console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
-    console.log(sts);
-       // console.log(j1);
 
 //====================================
 //==============  fetch  =============
@@ -110,7 +114,7 @@ function ok_upload_files(hh) {
 //             age: 53
 //         }];
 
- let body = sts;
+ let body = {linksInfo};
     console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
     console.log(body);
 
