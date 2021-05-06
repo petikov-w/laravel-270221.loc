@@ -31,15 +31,20 @@ class UploadController extends Controller
 
     public function upload(Request $request)
     {
+       $west = json_decode($request->getContent(), true);
+       $pest = $west['linksInfo'];
 
-            //$request_data = $request->only(['name','url']);
-            $request_data = $request->all();
-            dd($request_data['name']);
+       $huh = [];
+       for ($i=0; $i< count($pest); $i++) {
+           array_push($huh,$pest[$i]['name']);
+       }
+       dd($huh);
+
 //        if ($request->name) {
 //            $createLink = Link::firstOrCreate(['url' => $request->url],
 //                ['title' => $request->name]);
 //        }
-//     dd($request);
+
 //        return view('home', ['message' => 'Это главная страница сайта',
 //            'title' => 'Главная страница']);
     }
