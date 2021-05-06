@@ -25,14 +25,11 @@ fileInput.addEventListener('change', function (event) {
         reader.readAsText(hh);
         str += `<div class="e45">${hh['name']}</div><br>`;
     }
-
-
-    //console.log(Pink);
     listFile.innerHTML = str;
 
     add_class(dataLabel, 'hidden');
     rem_class(info, 'hidden');
-    // console.log(typeof(fileInput.files.length));
+
     if (fileInput.files.length>0) {
         info.innerHTML = `Выбрано:&nbsp <span class="i1">${fileInput.files.length}</span>&nbsp
                            Добавить в копилку? <button onclick="ok_upload_files()" class="z-yes">Да</button>
@@ -45,25 +42,6 @@ fileInput.addEventListener('change', function (event) {
 
 
 function ok_upload_files() {
-
-        // console.log(hh);
-        // for (let h of hh) {
-        //  //     linksForUpload.push(extractLinkInfo(h));
-        //     let reader = new FileReader();
-        //     reader.onload = function (event) {
-        //         linksInfo.push({
-        //             name: delete_extension(hh.name),
-        //             url: ExtractUrl(reader.result)
-        //         });
-        //     };
-        //     reader.readAsText(hh);
-        // }
-
-        console.log('<<=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=?=>>');
-        console.log(linksInfo);
-
-        // console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
-
 
 //====================================
 //==============  fetch  =============
@@ -118,31 +96,16 @@ function ok_upload_files() {
     console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
     console.log(body);
 
-
-let requestUrl = '/api/getthemes/6';
+//let requestUrl = '/api/getthemes/6';
 // sendRequest('get', requestUrl).then(data =>console.log(data))
 //                               .catch(err => console.log(err));
+
 sendRequest('post', '/api/upload', body).then(data =>console.log(data))
                                         .catch(err => console.log(err));
 //====================================
 //========== XMLHttpRequest (end) ====
 //====================================
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-    // console.log(mLink);
-    //let requestIntoServer = new XMLHttpRequest();
-    //requestIntoServer.open("POST","/api/upload", true)
-    // устанавливаем заголовок — выбираем тип контента, который отправится на сервер,
-    // в нашем случае мы явно пишем, что это JSON
-    //requestIntoServer.setRequestHeader('Content-Type', 'application/json');
-    //requestIntoServer.send(mLink);
-    // requestIntoServer.onreadystatechange = function () {
-    //     if (this.readyState==4 && this.status==200) {
-    //         console.log(this.responseText);
-    //     }
-    // }
-
-
+    cansel_upload_files();
 }
 
 function sendRequest(metod, url, body=null) {
@@ -161,40 +124,7 @@ function sendRequest(metod, url, body=null) {
         xhr.onerror = () => {
             reject(xhr.response);
         }
-
-        console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-        console.log(body);
-
         xhr.send(JSON.stringify(body));
     })
-}
-
-
-
-    function extractLinkInfo(fileLink) {
-        let result = [];
-        // let link ={
-        //     name: "",
-        //     url: "",
-        // };
-
-        let reader = new FileReader();
-        reader.onload = function (event) {
-            result.push({
-                name: delete_extension(fileLink.name),
-                url: ExtractUrl(reader.result)
-            });
-       };
-       reader.readAsText(fileLink);
-
-        let link ={};
-        for (let h of result) {
-            // link["name"] = h.name[0];
-            // link["url"] = h.url;
-            console.log(h.name[0]);
-        }
-
-        console.log(link);
-        return result;
 }
 
