@@ -36,14 +36,14 @@ class UploadController extends Controller
 
        $huh = [];
        for ($i=0; $i< count($pest); $i++) {
-           array_push($huh,$pest[$i]['name']);
+           if ($pest[$i]['name']) {
+               $links = Link::firstOrCreate(['url' => $pest[$i]['url']],['title' => $pest[$i]['name']]);
+           }
        }
-       dd($huh);
-
-//        if ($request->name) {
-//            $createLink = Link::firstOrCreate(['url' => $request->url],
-//                ['title' => $request->name]);
-//        }
+       return response()->json([
+           "status" => true,
+           "links" => $links,
+       ])->setStatusCode(201,"Links is created");
 
 //        return view('home', ['message' => 'Это главная страница сайта',
 //            'title' => 'Главная страница']);
