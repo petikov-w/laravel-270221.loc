@@ -34,7 +34,7 @@ class UploadController extends Controller
        $west = json_decode($request->getContent(), true);
        $pest = $west['linksInfo'];
 
-       $huh = [];
+
        for ($i=0; $i< count($pest); $i++) {
            if ($pest[$i]['name']) {
                $links = Link::firstOrCreate(['url' => $pest[$i]['url']],['title' => $pest[$i]['name']]);

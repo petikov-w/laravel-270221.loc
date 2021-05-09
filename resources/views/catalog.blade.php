@@ -9,9 +9,12 @@
     @endphp
 
         <div class="s-header">{{$message}}</div>
-        <div class="theme-list">
-                @foreach($list_themes as $theme)
-                    <div class="theme" data-attr={{$theme['id']}}>{{$theme['title']}}</div>
-                @endforeach
-        </div>
+{{--        <div class="theme-list">--}}
+{{--                @foreach($list_themes as $theme)--}}
+{{--                    <div class="theme" data-attr={{$theme['id']}}>{{$theme['title']}}</div>--}}
+{{--                @endforeach--}}
+{{--        </div>--}}
+        <div class="view-list"></div>
+
+
 @endsection

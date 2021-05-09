@@ -91,10 +91,10 @@ function ok_upload_files() {
 //             name: 'Ольга',
 //             age: 53
 //         }];
-
- let body = {linksInfo};
-    console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
-    console.log(body);
+//
+//  let body = {linksInfo};
+//     console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
+//     console.log(body);
 
 //let requestUrl = '/api/getthemes/6';
 // sendRequest('get', requestUrl).then(data =>console.log(data))
@@ -105,26 +105,38 @@ sendRequest('post', '/api/upload', body).then(data =>console.log(data))
 //====================================
 //========== XMLHttpRequest (end) ====
 //====================================
-    cansel_upload_files();
+cansel_upload_files();
 }
-
-function sendRequest(metod, url, body=null) {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open(metod, url);
-        xhr.responseType = 'json';
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = () => {
-            if (xhr.status >= 400) {
-                reject(xhr.response);
-            } else {
-                resolve(xhr.response);
-            }
-        }
-        xhr.onerror = () => {
-            reject(xhr.response);
-        }
-        xhr.send(JSON.stringify(body));
-    })
-}
-
+//
+// function sendRequest(metod, url, body=null) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open(metod, url);
+//         xhr.responseType = 'json';
+//         xhr.setRequestHeader('Content-Type', 'application/json');
+//         xhr.onload = () => {
+//             if (xhr.status >= 400) {
+//                 reject(xhr.response);
+//             } else {
+//                 resolve(xhr.response);
+//                 console.log(xhr.response);
+//             }
+//         }
+//         xhr.onerror = () => {
+//             reject(xhr.response);
+//         }
+//         xhr.send(JSON.stringify(body));
+//     })
+// }
+//
+// function create_links_list(args) {
+//     for (i=0; i<args.length; i++) {
+//         let link_template = `<a href="${args[i]['url']}" class="link"><span
+//                              class="name-link">${args[i]['title']}</span></a><br>`;
+//          const myFragment = document.createRange().createContextualFragment(link_template);
+//         // console.log(myFragment.querySelector('.name-link').textContent);
+//         // console.log(myFragment.querySelector('.link').getAttribute('href'));
+//         myFragment.querySelector('.name-link').addEventListener('contextmenu', handler_menulink_onclick);
+//         document.querySelector('.view-list').appendChild(myFragment);
+//     }
+// }
