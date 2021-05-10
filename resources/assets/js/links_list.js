@@ -1,13 +1,44 @@
-// Ждем полной загрузки страницы
-window.onload = function () {
-    // Выбираем все карточки ссылок
-    let card = document.querySelectorAll('.card-theme');
-    let card_item = document.querySelectorAll('.mi-card');
-
-    for (i = 0; i < card.length; i++) {
-        card[i].addEventListener('click', handler_card_onclick, false);
+let    menuItem = document.querySelectorAll('.main-menu-item');
+let    current_menuItem='';
+for (i = 0; i < menuItem.length; i++) {
+        menuItem[i].addEventListener('click', handler_menuItem_onclick, false);
     }
+
+
+
+function handler_menuItem_onclick(event) {
+    //event.preventDefault();
+    console.log('Привет --> ' + event.target.textContent);
+    current_menuItem = event.target.textContent;
+    //document.querySelector('.menu-context-card').classList.remove('hidden');
 }
+
+window.onload = function () {
+    console.log(current_menuItem);
+}
+
+//     clear_link_list();
+//     create_links_list(JSON.parse(this.responseText));
+
+//let    asd = document.body.innerHTML;
+
+//console.log(asd);
+// for (let elem of document.body.children) {
+//     if (elem.matches('a[href$="zip"]')) {
+//         alert("Ссылка на архив: " + elem.href );
+//     }
+// }
+
+// Ждем полной загрузки страницы
+// window.onload = function () {
+//     // Выбираем все карточки ссылок
+//     let card = document.querySelectorAll('.card-theme');
+//     let card_item = document.querySelectorAll('.mi-card');
+//
+//     for (i = 0; i < card.length; i++) {
+//         card[i].addEventListener('click', handler_card_onclick, false);
+//     }
+// }
 
 // Обработчик события клика по карточке ссылки
 function handler_card_onclick () {

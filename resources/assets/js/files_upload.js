@@ -92,7 +92,7 @@ function ok_upload_files() {
 //             age: 53
 //         }];
 //
-//  let body = {linksInfo};
+let body = {linksInfo};
 //     console.log('-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++');
 //     console.log(body);
 
