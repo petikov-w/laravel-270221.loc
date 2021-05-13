@@ -3,7 +3,9 @@ let fileInput = document.querySelector('#file-input');
 let dataLabel = document.querySelector('.if-button');
 let info = document.querySelector('.info-button');
 let listFile = document.querySelector('.file-h');
+//let listView = document.querySelector('.view-list');
 let linksInfo = [];
+let btn_add_links = document.querySelector('.link-add');
 
 
 // == Проверка подключения jquery ==
@@ -11,34 +13,37 @@ let linksInfo = [];
 //     alert(jQuery.fn.jquery);
 // });
 //==================================
+if (btn_add_links) {
+    fileInput.addEventListener('change', function (event) {
+        let str ='';
+        for (let hh of fileInput.files) {
+            let reader = new FileReader();
+            reader.onload = function (event) {
+                linksInfo.push({
+                    name: delete_extension(hh.name),
+                    url: ExtractUrl(reader.result)
+                });
+            };
+            reader.readAsText(hh);
+            str += `<div class="e45">${hh['name']}</div><br>`;
+        }
+        listFile.innerHTML = str;
+        listView.innerHTML = "";
+        add_class(dataLabel, 'hidden');
+        rem_class(info, 'hidden');
 
-fileInput.addEventListener('change', function (event) {
-    let str ='';
-    for (let hh of fileInput.files) {
-        let reader = new FileReader();
-        reader.onload = function (event) {
-            linksInfo.push({
-                name: delete_extension(hh.name),
-                url: ExtractUrl(reader.result)
-            });
-        };
-        reader.readAsText(hh);
-        str += `<div class="e45">${hh['name']}</div><br>`;
-    }
-    listFile.innerHTML = str;
-
-    add_class(dataLabel, 'hidden');
-    rem_class(info, 'hidden');
-
-    if (fileInput.files.length>0) {
-        info.innerHTML = `Выбрано:&nbsp <span class="i1">${fileInput.files.length}</span>&nbsp
+        if (fileInput.files.length>0) {
+            info.innerHTML = `Выбрано:&nbsp <span class="i1">${fileInput.files.length}</span>&nbsp
                            Добавить в копилку? <button onclick="ok_upload_files()" class="z-yes">Да</button>
                             <button onclick="cansel_upload_files()" class="z-no">Нет</button>`;
-    } else {
-        info.innerHTML = `Ничего не было выбрано &nbsp
+        } else {
+            info.innerHTML = `Ничего не было выбрано &nbsp
                          <button onclick="cansel_upload_files()" class="z-no">ОК</button>`;
-    }
-});
+        }
+    });
+
+
+}
 
 
 function ok_upload_files() {
@@ -100,13 +105,37 @@ let body = {linksInfo};
 // sendRequest('get', requestUrl).then(data =>console.log(data))
 //                               .catch(err => console.log(err));
 
-sendRequest('post', '/api/upload', body).then(data =>console.log(data))
+sendRequest('post', '/api/upload', body).then(data => console.log(data))
                                         .catch(err => console.log(err));
+cansel_upload_files();
+window.location.reload();
+// sendRequest('get', '/api/getlinks').then(data2 =>console.log(data2))
+//                                     .catch(err => console.log(err));
+// sendRequest('get', '/api/getlinks').then(data2 =>createLinksList(data2))
+//                                     .catch(err => console.log(err));
+
+
 //====================================
 //========== XMLHttpRequest (end) ====
 //====================================
-cansel_upload_files();
+
 }
+
+function createLinksListPost(args) {
+    for (let index in args) {
+        let link_template = `<div class="link">
+                                  <a href="${args.links.url}">
+                                  <p>${args.links.title}
+                                  </p></a>
+                             </div>`;
+        const fragLink = document.createRange().createContextualFragment(link_template);
+        listView.append(fragLink);
+    }
+
+}
+
+
+
 //
 // function sendRequest(metod, url, body=null) {
 //     return new Promise((resolve, reject) => {
@@ -155,6 +184,7 @@ function add_class(eldom, d_class) {
 
 function cansel_upload_files() {
     rem_class(dataLabel, 'hidden');
+    //rem_class(listView,'hidden');
     add_class(info, 'hidden');
     document.querySelector('.file-h').innerHTML=``;
 }
@@ -209,85 +239,51 @@ function ExtractUrl(source) {
 }
 
 
-let    menuItem = document.querySelectorAll('.main-menu-item');
-let    current_menuItem='';
+let menuItem = document.querySelectorAll('.main-menu-item');
+let listView = document.querySelector('.view-list');
+
 for (i = 0; i < menuItem.length; i++) {
         menuItem[i].addEventListener('click', handler_menuItem_onclick, false);
     }
 
-
-
 function handler_menuItem_onclick(event) {
-    //event.preventDefault();
-    console.log('Привет --> ' + event.target.textContent);
-    current_menuItem = event.target.textContent;
-    //document.querySelector('.menu-context-card').classList.remove('hidden');
+     localStorage.setItem('active_menu_item', event.target.textContent);
 }
 
 window.onload = function () {
-    console.log(current_menuItem);
+    if (localStorage.getItem('active_menu_item')=="Каталог") {
+    clearLinkList();
+    sendRequest('get', '/api/getlinks').then(data =>createLinksList(data))
+                                       .catch(err => console.log(err));
+    }
 }
-
-//     clear_link_list();
-//     create_links_list(JSON.parse(this.responseText));
-
-//let    asd = document.body.innerHTML;
-
-//console.log(asd);
-// for (let elem of document.body.children) {
-//     if (elem.matches('a[href$="zip"]')) {
-//         alert("Ссылка на архив: " + elem.href );
-//     }
-// }
-
-// Ждем полной загрузки страницы
-// window.onload = function () {
-//     // Выбираем все карточки ссылок
-//     let card = document.querySelectorAll('.card-theme');
-//     let card_item = document.querySelectorAll('.mi-card');
-//
-//     for (i = 0; i < card.length; i++) {
-//         card[i].addEventListener('click', handler_card_onclick, false);
-//     }
-// }
-
-// Обработчик события клика по карточке ссылки
-function handler_card_onclick () {
-    // let view_main = document.querySelector('.view-main');
-    // let view_list = document.querySelector('.view-list');
-    // var data = JSON.stringify({'name_card' : this.innerHTML});
-    // let xhttp = new XMLHttpRequest();
-    // xhttp.open('POST', 'http://www-061220/listlinks.php', true);
-    // xhttp.setRequestHeader('Content-type', 'application/json');
-    // xhttp.send(data);
-    // add_class(view_main, 'hidden');
-    // rem_class(view_list, 'hidden');
-    //
-    // xhttp.onreadystatechange = function () {
-    //     if (this.readyState==4 && this.status==200) {
-    //         clear_link_list();
-    //         create_links_list(JSON.parse(this.responseText));
-    //     }
-    // }
-}
-
-
-
 
 function createLinksList(args) {
+    for (let index in args) {
+        let link_template = `<div class="link">
+                                  <a href="${args[index].url}">
+                                  <p>${args[index].title}
+                                  </p></a>
+                             </div>`;
+        const fragLink = document.createRange().createContextualFragment(link_template);
+        listView.append(fragLink);
+    }
+
+}
+
+function createLinksList2(args) {
     for (i=0; i<args.length; i++) {
-        let link_template = `<a href="${args[i]['url']}" class="link"><span
-                             class="name-link">${args[i]['title']}</span></a><br>`;
+        let link_template = `<h3>${args[i]['title']}</h3><br>`;
         const myFragment = document.createRange().createContextualFragment(link_template);
         // console.log(myFragment.querySelector('.name-link').textContent);
         // console.log(myFragment.querySelector('.link').getAttribute('href'));
-        myFragment.querySelector('.name-link').addEventListener('contextmenu', handler_menulink_onclick);
+        // myFragment.querySelector('.name-link').addEventListener('contextmenu', handler_menulink_onclick);
         document.querySelector('.view-list').appendChild(myFragment);
     }
 }
 
 function clearLinkList() {
-    return document.querySelector('.view-list').innerHTML = '';
+    return listView.innerHTML = '';
 }
 
 function sendRequest(metod, url, body=null) {

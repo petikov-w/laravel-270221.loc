@@ -29,6 +29,13 @@ class UploadController extends Controller
         return response()->json($theme);
     }
 
+    public function getLinks()
+    {
+        $links = Link::all();
+        return response()->json($links);
+
+    }
+
     public function upload(Request $request)
     {
        $west = json_decode($request->getContent(), true);

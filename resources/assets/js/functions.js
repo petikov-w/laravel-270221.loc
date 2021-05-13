@@ -12,6 +12,7 @@ function add_class(eldom, d_class) {
 
 function cansel_upload_files() {
     rem_class(dataLabel, 'hidden');
+    //rem_class(listView,'hidden');
     add_class(info, 'hidden');
     document.querySelector('.file-h').innerHTML=``;
 }

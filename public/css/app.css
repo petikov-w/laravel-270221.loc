@@ -387,6 +387,37 @@ nav {
   color: #116ebf;
 }
 
+.view-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.link {
+  display: inline;
+  width: 20%;
+  border: 2px solid #ff8400;
+  border-radius: 10px;
+  margin: 10px;
+  min-height: 100px;
+}
+.link:hover {
+  background: #ff8400;
+  color: #ffffff;
+}
+.link a {
+  text-decoration: none;
+}
+.link p {
+  font-size: 16px;
+  font-weight: 500;
+  color: darkcyan;
+  padding: 10px;
+}
+.link p:hover {
+  color: #ffffff;
+}
+
 .s-header, .e-header {
   font-size: 20px;
   font-weight: bold;

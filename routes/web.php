@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Route;
 // ======================= Главное меню =========================================================
 Route::group(['namespace'=>'App\Http\Controllers'], function (){
     Route::get('/', 'PageController@showHomePage')->name('home');;
-    Route::get('catalog', 'PageController@showCatalogPage');
-    Route::get('about', 'PageController@showAboutPage');
+    Route::get('catalog', 'PageController@showCatalogPage')->name('catalog');
+    Route::get('about', 'PageController@showAboutPage')->name('about');
     Route::get('contact', 'ContactController@index')->name('contacts');
 });
 //================================================================================================
