@@ -132,16 +132,17 @@ function handler_menuItem_onclick(event) {
 
 window.onload = function () {
     if (localStorage.getItem('active_menu_item')=="Каталог") {
-    clearLinkList();
-    sendRequest('get', '/api/getlinks').then(data =>console.log(data))
-                                       .catch(err => console.log(err));
-        // sendRequest('get', '/api/getlinks').then(data =>createLinksList(data))
-        //     .catch(err => console.log(err));
+    if (listView!=null) { clearLinkList()};
+    // sendRequest('get', '/api/getlinks').then(data =>console.log(data))
+    //                                    .catch(err => console.log(err));
+        sendRequest('get', '/api/getlinks').then(data =>createLinksList(data))
+            .catch(err => console.log(err));
 
     }
 }
 
 function createLinksList(args) {
+    console.log(args);
     for (let index in args) {
         let link_template = `<div class="link">
                                   <a href="${args[index].url}">

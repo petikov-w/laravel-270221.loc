@@ -11,11 +11,9 @@ class UploadController extends Controller
 
     public function getLinks()
     {
-        $links = Link::paginate(3);
-  //  $links = Link::all();
-   //     $links = Link::paginate(7);
-
-        return response()->json($links);
+        //$links = Link::all();
+       $links = Link::paginate(4);
+       return response()->json($links);
     }
 
 
