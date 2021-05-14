@@ -9,7 +9,6 @@ function sendRequest(metod, url, body=null) {
                 reject(xhr.response);
             } else {
                 resolve(xhr.response);
-                console.log(xhr.response);
             }
         }
         xhr.onerror = () => {

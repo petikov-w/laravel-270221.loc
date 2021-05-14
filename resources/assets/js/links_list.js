@@ -12,8 +12,11 @@ function handler_menuItem_onclick(event) {
 window.onload = function () {
     if (localStorage.getItem('active_menu_item')=="Каталог") {
     clearLinkList();
-    sendRequest('get', '/api/getlinks').then(data =>createLinksList(data))
+    sendRequest('get', '/api/getlinks').then(data =>console.log(data))
                                        .catch(err => console.log(err));
+        // sendRequest('get', '/api/getlinks').then(data =>createLinksList(data))
+        //     .catch(err => console.log(err));
+
     }
 }
 
@@ -29,6 +32,21 @@ function createLinksList(args) {
     }
 
 }
+
+
+// function createLinksList(args) {
+//     for (let index in args) {
+//         let link_template = `<div class="link">
+//                                   <a href="#">
+//                                   <p>${args[index].title}
+//                                   </p></a>
+//                              </div>`;
+//         const fragLink = document.createRange().createContextualFragment(link_template);
+//         listView.append(fragLink);
+//     }
+//
+// }
+
 
 function createLinksList2(args) {
     for (i=0; i<args.length; i++) {

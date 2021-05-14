@@ -8,6 +8,17 @@ use App\Models\Theme;
 
 class UploadController extends Controller
 {
+
+    public function getLinks()
+    {
+        $links = Link::paginate(3);
+  //  $links = Link::all();
+   //     $links = Link::paginate(7);
+
+        return response()->json($links);
+    }
+
+
     public function getForm()
     {
         return view('upload-form');
@@ -29,12 +40,13 @@ class UploadController extends Controller
         return response()->json($theme);
     }
 
-    public function getLinks()
-    {
-        $links = Link::all();
-        return response()->json($links);
-
-    }
+//    public function getLinks()
+//    {
+//        $links = Link::paginate(7);
+////        $links = Link::all();
+//        return response()->json($links);
+//
+//    }
 
     public function upload(Request $request)
     {
