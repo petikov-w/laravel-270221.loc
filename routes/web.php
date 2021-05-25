@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace'=>'App\Http\Controllers'], function (){
     Route::get('/', 'PageController@showHomePage')->name('home');;
     Route::get('catalog', 'PageController@showCatalogPage')->name('catalog');
-    Route::get('about', 'PageController@showAboutPage')->name('about');
+    Route::get('poligon', 'PageController@showPoligonPage')->name('about');
     Route::get('contact', 'ContactController@index')->name('contacts');
 });
 //================================================================================================
@@ -41,6 +41,7 @@ Route::group(['middleware'=>'Admin', 'namespace'=>'App\Http\Controllers\Admin'],
     Route::resource('admin/theme','AdminThemeController');
     Route::resource('admin/users','AdminUsersController');
     Route::get('admin/statistic', 'SainController@statistic')->name('admin.statistic');
+    Route::get('admin/links', 'SainController@statistic')->name('admin.links');
 //    Route::post('Admin/theme', 'SainController@store')->name('Admin.theme.store');
 });
 

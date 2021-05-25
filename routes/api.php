@@ -20,6 +20,8 @@ use App\Http\Controllers;
 //});
 
 Route::post('/upload', [App\Http\Controllers\UploadController::class, "upload"]);
-Route::get('/getlinks', [App\Http\Controllers\UploadController::class, "getLinks"]);
+Route::delete('/link/{id}', [App\Http\Controllers\UploadController::class, "deleteLink"]);
+Route::get('/links', [App\Http\Controllers\UploadController::class, "getLinks"]);
+//Route::get('/getlinks/{id}', [App\Http\Controllers\UploadController::class, "getLinks"]);
 Route::get('/getthemes', [App\Http\Controllers\UploadController::class, "getThemes"]);
 Route::get('/getthemes/{id}', [App\Http\Controllers\UploadController::class, "getTheme"]);

@@ -50,19 +50,28 @@ function numerals(number) {
 }
 
 function delete_extension(source) {
-    let end_pos = source.indexOf('.url');
+    let end_pos = source.toLowerCase().indexOf('.url');
+    console.log(source.toLowerCase());
+    console.log('Result: <<------ name ---------');
+    console.log(source.slice(0,end_pos));
     return source.slice(0,end_pos);
 }
 
 function ExtractUrl(source) {
-    let start_pos = source.indexOf('URL');
-    let end_pos = source.indexOf('/?');
+   let start_pos = source.indexOf('URL');
+    // console.log(source);
+    // console.log(source.indexOf('IDList='));
+
     let result = '';
-    if (start_pos>0 && end_pos>0) {
-        result = source.slice(start_pos+4, end_pos+1)
-    } else if (start_pos>0 && end_pos<0) {
-        result = source.slice(start_pos+4)
+    if (start_pos>0 && source.indexOf('/?')>0) {
+        result = source.slice(start_pos+4, source.indexOf('/?')+1);
+    } else if (start_pos>0 && source.indexOf('IDList=')>0) {
+        result = source.slice(start_pos+4, source.indexOf('IDList='));
+    } else if (start_pos>0 && source.indexOf('/?')<0) {
+        result = source.slice(start_pos + 4);
     }
+    // console.log('Result: <<------ url ---------');
+    // console.log(result);
     return result;
 }
 

@@ -9,13 +9,10 @@ use App\Models\Theme;
 class UploadController extends Controller
 {
 
-    public function getLinks()
-    {
-        //$links = Link::all();
-       $links = Link::paginate(4);
-       return response()->json($links);
+    public function getLinks() {
+        $links = Link::paginate(10);
+        return response()->json($links);
     }
-
 
     public function getForm()
     {
@@ -37,15 +34,31 @@ class UploadController extends Controller
         }
         return response()->json($theme);
     }
+    //============================================
+    //============= Удаление ссылки ==============
+    //============================================
 
-//    public function getLinks()
-//    {
-//        $links = Link::paginate(7);
-////        $links = Link::all();
-//        return response()->json($links);
-//
-//    }
+    public function deleteLink($id) {
+        $link = Link::destroy($id);
 
+        if (!$link) {
+            return response()->json([
+                "status" => false,
+                "message" => "Link not found"
+            ])->setStatusCode(404,"Link not found");
+        } else {
+            return response()->json([
+                "status" => true,
+                "message" => "Link is delete"
+            ])->setStatusCode(200,"Link is delete");
+        }
+
+        //session()->flash('success', 'Ссылка успешно удалена');
+       // return redirect()->back();
+    }
+    //============================================
+    //=========== Добавление новых ссылок ========
+    //============================================
     public function upload(Request $request)
     {
        $west = json_decode($request->getContent(), true);
